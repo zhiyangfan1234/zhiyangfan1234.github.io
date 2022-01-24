@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 6.0.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"zhiyangfan1234.github.io","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="AtCoder Grand Contest 055考试总结有大废物赛时一题没做出来，躺床上不到 20min 想到 $\tt A$ 的正解。然后今天补题，我只有一句感慨：这真的是人类能出出来的题目和做出来的题目吗？？ 题目A - ABC Identity给出一个长为 $3n$ 的串 $S$，其中恰含有 $n$ 个 A，$n$ 个 B 和 $n$ 个 C。定义一个含有 A，B 和 C 的字符串 $T$">
+<meta property="og:type" content="article">
+<meta property="og:title" content="AtCoder Grand Contest 055">
+<meta property="og:url" content="https://zhiyangfan1234.github.io/2022/01/24/AtCoder%20Grand%20Contest%20055%E8%80%83%E8%AF%95%E6%80%BB%E7%BB%93/index.html">
+<meta property="og:site_name" content="zhiyangfan 的博客小窝">
+<meta property="og:description" content="AtCoder Grand Contest 055考试总结有大废物赛时一题没做出来，躺床上不到 20min 想到 $\tt A$ 的正解。然后今天补题，我只有一句感慨：这真的是人类能出出来的题目和做出来的题目吗？？ 题目A - ABC Identity给出一个长为 $3n$ 的串 $S$，其中恰含有 $n$ 个 A，$n$ 个 B 和 $n$ 个 C。定义一个含有 A，B 和 C 的字符串 $T$">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2022-01-24T09:00:23.000Z">
+<meta property="article:modified_time" content="2022-01-24T09:12:05.234Z">
+<meta property="article:author" content="zhiyangfan">
+<meta property="article:tag" content="AGC">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="https://zhiyangfan1234.github.io/2022/01/24/AtCoder%20Grand%20Contest%20055%E8%80%83%E8%AF%95%E6%80%BB%E7%BB%93/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>AtCoder Grand Contest 055 | zhiyangfan 的博客小窝</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">zhiyangfan 的博客小窝</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://zhiyangfan1234.github.io/2022/01/24/AtCoder%20Grand%20Contest%20055%E8%80%83%E8%AF%95%E6%80%BB%E7%BB%93/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="zhiyangfan">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="zhiyangfan 的博客小窝">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          AtCoder Grand Contest 055
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2022-01-24 17:00:23 / 修改时间：17:12:05" itemprop="dateCreated datePublished" datetime="2022-01-24T17:00:23+08:00">2022-01-24</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h2 id="AtCoder-Grand-Contest-055考试总结"><a href="#AtCoder-Grand-Contest-055考试总结" class="headerlink" title="AtCoder Grand Contest 055考试总结"></a>AtCoder Grand Contest 055考试总结</h2><p>有大废物赛时一题没做出来，躺床上不到 20min 想到 $\tt A$ 的正解。然后今天补题，我只有一句感慨：这真的是人类能出出来的题目和做出来的题目吗？？</p>
+<h3 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h3><h4 id="A-ABC-Identity"><a href="#A-ABC-Identity" class="headerlink" title="A - ABC Identity"></a>A - ABC Identity</h4><p>给出一个长为 $3n$ 的串 $S$，其中恰含有 $n$ 个 <code>A</code>，$n$ 个 <code>B</code> 和 $n$ 个 <code>C</code>。定义一个含有 <code>A</code>，<code>B</code> 和 <code>C</code> 的字符串 $T$ 是好的，当且仅当其满足以下条件：</p>
+<ul>
+<li>$T$ 的长度是 $3$ 的倍数，记作 $3k$。</li>
+<li>$T_1=T_2=\cdot\cdot\cdot=T_k$</li>
+<li>$T_{k+1}=T_{k+2}=\cdot\cdot\cdot=T_{2k}$</li>
+<li>$T_{2k+1}=T_{2k+2}=\cdot\cdot\cdot=T_{3k}$</li>
+<li>$T_1,T_{k+1},T_{2k+1}$ 互不相同。</li>
+</ul>
+<p>给出一种把 $S$ 划分为至多 $6$ 个子序列的方案，使得每个子序列都是好的，可以证明一定有解。($1\le n\le2\times10^5$)</p>
+<p>首先注意到题目里面的限制条件：至多 $6$ 个子序列，可以联想到 $A_3^3=6$，即 <code>A</code>，<code>B</code> 和 <code>C</code> 这三个字符的排列数是 $6$。顺着这个思路，我们发现，如果我们能把 $T_1,T_{k+1},T_{2k+1}$ 分别为 <code>A</code>，<code>B</code> 和 <code>C</code> 的六种排列的六种好的子序列全部取出，则一定能全部取完，即划分为至多 $6$ 个子序列。我最初的思路是二分每种排列的对应的子序列 $k$ 的最长长度，对于二分到的值，完全可以做到 $\mathcal{O}(n)$ 扫一遍判断可行性，顺次取即可。这样取 $6$ 次一定能取完，时间复杂度 $\mathcal{O}(n\log n)$。</p>
+<p>当然题解有更优的方法，毕竟六次二分还是太阴间了。题解给出的结论是把串 $S$ 分为 $S_{1..n},S_{n+1..2n},S_{2n+1..3n}$ 三个部分，每次取排列的时候，第一个字符从第一个部分取，以此类推。依然是尽量取最长的，依然能保证取完。题解给的证明没太理解，但我感性理解了一下。其实跟我原来的证明差不多，因为每次取会取尽量多的，取完之后一定不能再取出任何一种排列了，即原串空了。总之，这个方法最终时间复杂度 $\mathcal{O}(n)$。<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N = <span class="number">6e5</span> + <span class="number">10</span>, to[<span class="number">6</span>][<span class="number">3</span>] = &#123;&#123;<span class="number">0</span>, <span class="number">1</span>, <span class="number">2</span>&#125;, &#123;<span class="number">0</span>, <span class="number">2</span>, <span class="number">1</span>&#125;, &#123;<span class="number">1</span>, <span class="number">2</span>, <span class="number">0</span>&#125;, &#123;<span class="number">1</span>, <span class="number">0</span>, <span class="number">2</span>&#125;, &#123;<span class="number">2</span>, <span class="number">1</span>, <span class="number">0</span>&#125;, &#123;<span class="number">2</span>, <span class="number">0</span>, <span class="number">1</span>&#125;&#125;;</span><br><span class="line"><span class="keyword">char</span> s[N]; <span class="keyword">int</span> col[N], cnt[<span class="number">3</span>], n;</span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">work</span><span class="params">(<span class="keyword">int</span> id)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	cnt[<span class="number">0</span>] = cnt[<span class="number">1</span>] = cnt[<span class="number">2</span>] = <span class="number">0</span>; <span class="keyword">int</span> now = <span class="number">1</span>; <span class="comment">//cnt 找到每个部分里面对应字符的数量</span></span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> d = <span class="number">0</span>; d &lt; <span class="number">3</span>; ++d, now += n)</span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> i = now; i &lt;= now + n - <span class="number">1</span>; ++i) </span><br><span class="line">			<span class="keyword">if</span> (s[i] == to[id][d] + <span class="string">&#x27;A&#x27;</span> &amp;&amp; !col[i]) ++cnt[d];</span><br><span class="line">    <span class="comment">//取个 min 就是要取的长度</span></span><br><span class="line">	<span class="keyword">int</span> len = std::<span class="built_in">min</span>(std::<span class="built_in">min</span>(cnt[<span class="number">0</span>], cnt[<span class="number">1</span>]), cnt[<span class="number">2</span>]); now = <span class="number">1</span>;</span><br><span class="line">    <span class="comment">//直接线性找，找到染色</span></span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> d = <span class="number">0</span>, cnt = <span class="number">0</span>; d &lt; <span class="number">3</span>; ++d, now += n, cnt = <span class="number">0</span>)</span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> i = now; i &lt;= now + n - <span class="number">1</span>; ++i)</span><br><span class="line">			<span class="keyword">if</span> (cnt &lt; len &amp;&amp; !col[i] &amp;&amp; s[i] == to[id][d] + <span class="string">&#x27;A&#x27;</span>) ++cnt, col[i] = id + <span class="number">1</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="built_in">scanf</span>(<span class="string">&quot;%d%s&quot;</span>, &amp;n, s + <span class="number">1</span>); <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">6</span>; ++i) <span class="built_in">work</span>(i); </span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n * <span class="number">3</span>; ++i) <span class="built_in">printf</span>(<span class="string">&quot;%d&quot;</span>, col[i]); </span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">&quot;\n&quot;</span>); <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h4 id="B-ABC-Supremacy"><a href="#B-ABC-Supremacy" class="headerlink" title="B - ABC Supremacy"></a>B - ABC Supremacy</h4><p>给出一个只含有 <code>A</code>，<code>B</code> 和 <code>C</code> 的长度为 $n$ 的字符串 $S$ 和 $T$，你可以做任意次以下操作：</p>
+<ul>
+<li>选择任意满足 $S_iS_{i+1}S_{i+2}(1\le i\le n-2)$ 为 <code>ABC</code>，<code>BCA</code> 或 <code>CAB</code> 的 $i$，把这三个字符换为 <code>ABC</code>，<code>BCA</code> 或 <code>CAB</code>。</li>
+</ul>
+<p>求是否能通过若干次操作把 $S$ 变为 $T$。($3\le n\le3\times10^5$)</p>
+<p>因为 <code>ABC</code>，<code>BCA</code> 和 <code>CAB</code> 这仨形式不是很好看，我们想把它们变整齐一点。考虑对原串中第 $i$ 个字符做 $i$ 次以下变换：</p>
+<ul>
+<li><code>A</code> $\rightarrow$ <code>B</code> $\rightarrow$ <code>C</code> $\rightarrow$ <code>A</code></li>
+</ul>
+<p>则容易发现，原来的仨形式会变为 <code>AAA</code>，<code>BBB</code> 和 <code>CCC</code>。这样，我们可以做以下操作：</p>
+<ul>
+<li><code>YYYX</code> $\rightarrow$ <code>XXXX</code> $\rightarrow$ <code>XZZZ</code></li>
+</ul>
+<p>也就是说，我们可以删掉任意三个连续相同的字符，然后在任意地方插入任意三个连续的相同字符。由这个性质，我们可以想到比较 $S$ 和 $T$ 删除所有连续三个相同字符剩下的字符串，因为这些是不能被改变的。但随之而来的问题是，删除所有三个连续字符剩下的字符串一定相同吗？或者说，不同的删除顺序或删除方法会不会有不同的结果，这样我们就无法比较了？注意到，对于串 $S$，如果其对应的所有字符不相交，则挨个删除显然不会改变最后剩下来的东西，如果相交，则显然可以通过上述方法改变把相交部分变成一个连续相同字母段，这样不管怎么删除剩下来的东西也一定相同。所以不同的删除顺序并不会影响最终结果。这样，我们就证明完了，求剩下的字符串可以用个栈模拟一下，最终时间复杂度 $\mathcal{O}(n)$。<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N = <span class="number">5e5</span> + <span class="number">10</span>, nxt[<span class="number">3</span>] = &#123;<span class="number">2</span>, <span class="number">0</span>, <span class="number">1</span>&#125;; </span><br><span class="line"><span class="keyword">char</span> s[N], t[N]; <span class="keyword">int</span> st1[N], tp1, st2[N], tp2;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> n; <span class="built_in">scanf</span>(<span class="string">&quot;%d%s%s&quot;</span>, &amp;n, s + <span class="number">1</span>, t + <span class="number">1</span>);</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; ++i)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">int</span> flag = <span class="number">1</span>, k = <span class="number">0</span>, c = s[i] - <span class="string">&#x27;A&#x27;</span>;</span><br><span class="line">		<span class="keyword">while</span> (k &lt; (i % <span class="number">3</span>)) c = nxt[c], ++k; st1[++tp1] = c;</span><br><span class="line">		<span class="keyword">if</span> (tp1 &lt; <span class="number">3</span>) <span class="keyword">continue</span>;</span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> j = tp1; j &gt;= tp1 - <span class="number">1</span> &amp;&amp; flag; --j)</span><br><span class="line">			<span class="keyword">if</span> (st1[j] != st1[j - <span class="number">1</span>]) flag = <span class="number">0</span>;</span><br><span class="line">		<span class="keyword">if</span> (flag) tp1 -= <span class="number">3</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; ++i)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">int</span> flag = <span class="number">1</span>, k = <span class="number">0</span>, c = t[i] - <span class="string">&#x27;A&#x27;</span>;</span><br><span class="line">		<span class="keyword">while</span> (k &lt; (i % <span class="number">3</span>)) c = nxt[c], ++k; st2[++tp2] = c;</span><br><span class="line">;		<span class="keyword">if</span> (tp2 &lt; <span class="number">3</span>) <span class="keyword">continue</span>;</span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> j = tp2; j &gt;= tp2 - <span class="number">1</span> &amp;&amp; flag; --j)</span><br><span class="line">			<span class="keyword">if</span> (st2[j] != st2[j - <span class="number">1</span>]) flag = <span class="number">0</span>;</span><br><span class="line">		<span class="keyword">if</span> (flag) tp2 -= <span class="number">3</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">if</span> (tp1 != tp2) &#123; <span class="built_in">printf</span>(<span class="string">&quot;NO\n&quot;</span>); <span class="keyword">return</span> <span class="number">0</span>; &#125;</span><br><span class="line">	<span class="keyword">int</span> flag = <span class="number">1</span>;</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= tp1 &amp;&amp; flag; ++i)</span><br><span class="line">		<span class="keyword">if</span> (st1[i] != st2[i]) flag = <span class="number">0</span>;</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">&quot;%s\n&quot;</span>, flag ? <span class="string">&quot;YES&quot;</span> : <span class="string">&quot;NO&quot;</span>); <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h4 id="C-Weird-LIS"><a href="#C-Weird-LIS" class="headerlink" title="C - Weird LIS"></a>C - Weird LIS</h4><p>qwq，$\tt \color{black}x\color{red}义x$ 和官方题解讲的我都没看懂，先咕着了。</p>
+<h4 id="D-ABC-Ultimatum"><a href="#D-ABC-Ultimatum" class="headerlink" title="D - ABC Ultimatum"></a>D - ABC Ultimatum</h4><p>我们称一个长度为 $3n$ 的含有 $n$ 个 <code>A</code>，$n$ 个 <code>B</code> 和 $n$ 个 <code>C</code> 的字符串 $T$ 是好的，当且仅当它能被分为 $n$ 个长为 $3$ 的子序列，且每个子序列是 <code>ABC</code>，<code>BCA</code> 和 <code>CAB</code> 中的一种。给出一个长为 $3n$ 的含有 <code>A</code>，<code>B</code>，<code>C</code> 和 <code>?</code> 的字符串 $S$，找到有多少种把 <code>?</code> 换为 <code>A</code>，<code>B</code> 或 <code>C</code> 的方案，能使得原串是好的，答案对 $998,244,353$ 取模。</p>
+<blockquote>
+<p>我不理解，为什么一个正常人类能做出这种题目。</p>
+</blockquote>
+<p>我不理解，为什么一个正常人类能出出来这种题目。</p>
+<p>考虑设 $f_{AB}(i)$ 表示前 $i$ 个数中 <code>B</code> 的个数减去 <code>A</code> 的个数，设 $M_A=\max(f_{AB}(0),f_{AB}(1),\cdot\cdot\cdot,f_{AB}(3n))$，类似地，我们定义出 $f_{BC}(i),f_{CA}(i)$，和 $M_B=\max(f_{BC}(0),f_{BC}(1),\cdot\cdot\cdot,f_{BC}(3n)),M_C=\max(f_{CA}(0),f_{CA}(1),\cdot\cdot\cdot,f_{CA}(3n))$。我们来证明 $T$ 能分成 $n$ 个子序列，当且仅当 $M_A+M_B+M_C\le n$。</p>
+<p>必要性：假设我们把原序列分为了 $A_1$ 个 <code>ABC</code>，$B_1$ 个 <code>BCA</code> 和 $C_1$ 个 <code>CAB</code>。则 $M_A\le B_1$，因为只有在 <code>BCA</code> 中 <code>B</code> 在 <code>A</code> 前面，同理可以得到 $M_B\le C_1,M_C\le A_1$，所以我们一定有 $M_A+M_B+M_C\le A_1+B_1+C_1=n$。</p>
+<p>充分性：因为 $M_A+M_B+M_C\le n$，则我们可以把原序列分成这样的三元组：$($ 第 $i$ 个 <code>A</code> $,$ 第 $(i+M_A)\bmod n$ 个 <code>B</code> $,$ 第 $(i+M_A+M_B)\bmod n$ 个 <code>C</code> $)$。显然满足条件。</p>
+<p>这样我们就能 $\rm dp$ 了。考虑设 $f_{a,b,c,ma,mb,mc}$ 表示当前选了 $a$ 个 <code>A</code>，$b$ 个 <code>B</code> 和 $c$ 个 <code>C</code>，且 $f_{CA}(i)$ 目前最大值为 $ma$，$f_{BC}(i)$ 目前最大值为 $mb$，$f_{AB}(i)$ 目前最大值为 $mc$。直接看过去可能会发现还有一维是当前位置，复杂度为 $\mathcal{O}(n^7)$，但实际上，$a+b+c$ 即为位置，所以还是 $\mathcal{O}(n^6)$ 的，根据这个有转移：</p>
+<p>$\begin{cases}f_{a+1,b,c,\max(ma,a+1-c),mb,mc}\leftarrow f_{a,b,c,ma,mb,mc}&amp;S_{a+b+c+1}=\texttt{A}\\f_{a,b+1,c,ma,\max(mb,b+1-a),mc}\leftarrow f_{a,b,c,ma,mb,mc}&amp;S_{a+b+c+1}=\texttt{B}\\f_{a,b,c+1,ma,mb,\max(mc,c+1-a)}\leftarrow f_{a,b,c,ma,mb,mc}&amp;S_{a+b+c+1}=\texttt{C}\end{cases}$</p>
+<p>注意如果 $S_i=\texttt{?}$，则这三个条件都满足。边界条件 $f_{0,0,0,0,0,0}=1$，最终答案即为 $\sum_{0\le ma+mb+mc\le n}f_{n,n,n,ma,mb,mc}$。最终时间复杂度 $\mathcal{O}(n^6)$。<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N = <span class="number">20</span>, mod = <span class="number">998244353</span>; <span class="keyword">int</span> f[N][N][N][N][N][N]; <span class="keyword">char</span> s[N * <span class="number">3</span>];</span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">mo</span><span class="params">(<span class="keyword">int</span>&amp; x)</span> </span>&#123; <span class="keyword">while</span> (x &gt;= mod) x -= mod; &#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> n, ans = <span class="number">0</span>; <span class="built_in">scanf</span>(<span class="string">&quot;%d%s&quot;</span>, &amp;n, s + <span class="number">1</span>); f[<span class="number">0</span>][<span class="number">0</span>][<span class="number">0</span>][<span class="number">0</span>][<span class="number">0</span>][<span class="number">0</span>] = <span class="number">1</span>;</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> a = <span class="number">0</span>, i; a &lt;= n; ++a) <span class="keyword">for</span> (<span class="keyword">int</span> b = <span class="number">0</span>; b &lt;= n; ++b) <span class="keyword">for</span> (<span class="keyword">int</span> c = <span class="number">0</span>; c &lt;= n; ++c)</span><br><span class="line">	&#123;</span><br><span class="line">		i = a + b + c + <span class="number">1</span>;</span><br><span class="line">		<span class="keyword">if</span> (a &lt; n &amp;&amp; (s[i] == <span class="string">&#x27;A&#x27;</span> || s[i] == <span class="string">&#x27;?&#x27;</span>))</span><br><span class="line">			<span class="keyword">for</span> (<span class="keyword">int</span> ma = <span class="number">0</span>; ma &lt;= n; ++ma) <span class="keyword">for</span> (<span class="keyword">int</span> mb = <span class="number">0</span>; ma + mb &lt;= n; ++mb) <span class="keyword">for</span> (<span class="keyword">int</span> mc = <span class="number">0</span>; ma + mb + mc &lt;= n; ++mc)</span><br><span class="line">				<span class="built_in">mo</span>(f[a + <span class="number">1</span>][b][c][std::<span class="built_in">max</span>(ma, a + <span class="number">1</span> - c)][mb][mc] += f[a][b][c][ma][mb][mc]);</span><br><span class="line">		<span class="keyword">if</span> (b &lt; n &amp;&amp; (s[i] == <span class="string">&#x27;B&#x27;</span> || s[i] == <span class="string">&#x27;?&#x27;</span>))</span><br><span class="line">			<span class="keyword">for</span> (<span class="keyword">int</span> ma = <span class="number">0</span>; ma &lt;= n; ++ma) <span class="keyword">for</span> (<span class="keyword">int</span> mb = <span class="number">0</span>; ma + mb &lt;= n; ++mb) <span class="keyword">for</span> (<span class="keyword">int</span> mc = <span class="number">0</span>; ma + mb + mc &lt;= n; ++mc)</span><br><span class="line">				<span class="built_in">mo</span>(f[a][b + <span class="number">1</span>][c][ma][std::<span class="built_in">max</span>(mb, b + <span class="number">1</span> - a)][mc] += f[a][b][c][ma][mb][mc]);</span><br><span class="line">		<span class="keyword">if</span> (c &lt; n &amp;&amp; (s[i] == <span class="string">&#x27;C&#x27;</span> || s[i] == <span class="string">&#x27;?&#x27;</span>))</span><br><span class="line">			<span class="keyword">for</span> (<span class="keyword">int</span> ma = <span class="number">0</span>; ma &lt;= n; ++ma) <span class="keyword">for</span> (<span class="keyword">int</span> mb = <span class="number">0</span>; ma + mb &lt;= n; ++mb) <span class="keyword">for</span> (<span class="keyword">int</span> mc = <span class="number">0</span>; ma + mb + mc &lt;= n; ++mc)</span><br><span class="line">				<span class="built_in">mo</span>(f[a][b][c + <span class="number">1</span>][ma][mb][std::<span class="built_in">max</span>(mc, c + <span class="number">1</span> - b)] += f[a][b][c][ma][mb][mc]);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> ma = <span class="number">0</span>; ma &lt;= n; ++ma) <span class="keyword">for</span> (<span class="keyword">int</span> mb = <span class="number">0</span>; ma + mb &lt;= n; ++mb) <span class="keyword">for</span> (<span class="keyword">int</span> mc = <span class="number">0</span>; ma + mb + mc &lt;= n; ++mc)</span><br><span class="line">		<span class="built_in">mo</span>(ans += f[n][n][n][ma][mb][mc]);</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">&quot;%d\n&quot;</span>, ans); <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h4 id="E-Set-Merging"><a href="#E-Set-Merging" class="headerlink" title="E - Set Merging"></a>E - Set Merging</h4><p>给出 $n$ 个集合 $S_1,S_2,\cdot\cdot\cdot,S_n$，初始时 $S_i=\{i\}$。你可以进行如下操作：</p>
+<ul>
+<li>选择任意 $i\in [1,n-1]$，令 $U=S_i\cup S_{i+1}$，把 $S_i,S_{i+1}$ 替换为 $U$。</li>
+</ul>
+<p>能否通过有限次操作使得 $S_i=\{L_i,L_i+1,\cdot\cdot\cdot,R_i-1,R_i\}$，如果可以，找到最少的操作次数，否则报告无解。($1\le n\le5\times10^5,1\le L_i\le R_i\le n$)</p>
+<p>显然，如果我们想让操作次数最少，我们不会对 $S_i=S_{i+1}$ 的 $i$ 做任何操作。我们考虑设一个辅助的 $1\sim n$ 的排列 $\mathcal{P}$，初始时 $\mathcal{P}=(1,2,\cdot\cdot\cdot,n)$。当我们对 $S_i,S_{i+1}$ 做上述操作时，我们交换 $\mathcal{P}_i$ 和 $\mathcal{P}_{i+1}$，则我们可以证明如下结论：</p>
+<ul>
+<li>在任意时刻，对于任意 $i$，$S_i$ 包含从 $\min_{j=i}^n\{\mathcal{P}_j\}$ 到 $\max_{j=1}^i\{\mathcal{P}_j\}$ 中的全部整数。</li>
+</ul>
+<p>显然一开始时该结论成立，考虑证明进行一次操作后该结论依然成立。如果 $\mathcal{P}_i&gt;\mathcal{P}_{i+1}$，则显然有 $\max_{j=1}^i\{\mathcal{P}_j\}=\max_{j=1}^{i+1}\{\mathcal{P}_j\}$ 和 $\min_{j=i}^n\{\mathcal{P}_j\}=\min_{j=i+1}^n\{\mathcal{P}_j\}$，即 $S_i=S_{i+1}$，我们不需要做任何操作。所以交换的两个数一定满足 $\mathcal{P}_i&lt;\mathcal{P}_{i+1}$。</p>
+<p>则 $S_i\cup S_{i+1}=[\min_{j=i}^n\{\mathcal{P}_j\},\max_{j=1}^{i+1}\{\mathcal{P}_j\}]$（用数轴之类的方式合并一下不等式即得）。而又有，$\min_{j=i}^n\{\mathcal{P}_j\}=\min(\min_{j=i+2}^n\{\mathcal{P}_j\},P_i)$ 和 $\max_{j=1}^{i+1}\{\mathcal{P}_j\}=\max(\max_{j=1}^{i-1}\{\mathcal{P}_j\},\mathcal{P}_{i+1})$。所以交换之后结论依然成立。</p>
+<p>通过上面的过程，我们能发现，最终答案的最小次数其实就是最终构造出的 $\mathcal{P}$ 中逆序对的个数。也就是说，我们把问题转化成了：</p>
+<blockquote>
+<p>是否存在一个 $1\sim n$ 的排列 $\mathcal{P}$，使得对于所有 $i$ 都有 $\max_{j=1}^i\{\mathcal{P}_j\}=R_i,\min_{j=i}^n\{\mathcal{P}_j\}=L_i$？如果存在，找到其中逆序对最少的那个。</p>
+</blockquote>
+<p>因为前缀 $\max$ 和后缀 $\min$ 都是不降的，所以我们一定要有 $L_i\le L_{i+1}$ 和 $R_i\le R_{i+1}$。且如果 $L_i\ne L_{i+1}$，我们一定有 $\mathcal{P}_i=L_i$，特别地，一定有 $\mathcal{P}_n=L_n$。类似地，如果 $R_i\ne R_{i+1}$，则一定有 $\mathcal{P}_{i+1}=R_{i+1}$，且一定有 $\mathcal{P}_1=R_1$。这样，我们就能确定 $\mathcal{P}$ 中一些元素了，如果在确定的过程中出现了矛盾或破坏了排列的性质，直接报告无解即可。</p>
+<p>考虑如何插入剩下的的元素，可以把它们按照递增的顺序插入进来。因为如果任意插入不破坏前后缀的性质的话，排序后插入也不会破坏，且这样会产生最小的逆序对，所以自然可以且必须这样插。最终在最终的 $\mathcal{P}$ 上用树状数组之类的找逆序对即可，时间复杂度 $\mathcal{O}(n\log n)$。<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">long</span> <span class="keyword">long</span> ll;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N = <span class="number">5e5</span> + <span class="number">10</span>; <span class="keyword">int</span> P[N], L[N], R[N], vis[N], res[N], tp;</span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">BIT</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">	ll c[N]; <span class="keyword">int</span> len;</span><br><span class="line">	<span class="function"><span class="keyword">inline</span> <span class="keyword">int</span> <span class="title">lowbit</span><span class="params">(<span class="keyword">int</span> x)</span> </span>&#123; <span class="keyword">return</span> x &amp; -x; &#125;</span><br><span class="line">	<span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">add</span><span class="params">(<span class="keyword">int</span> x, <span class="keyword">int</span> v)</span> </span>&#123; <span class="keyword">for</span> (<span class="keyword">int</span> i = x; i &lt;= len; i += <span class="built_in">lowbit</span>(i)) c[i] += v; &#125;</span><br><span class="line">	<span class="function"><span class="keyword">inline</span> ll <span class="title">query</span><span class="params">(<span class="keyword">int</span> x)</span> </span>&#123; ll ans = <span class="number">0</span>; <span class="keyword">for</span> (<span class="keyword">int</span> i = x; i; i -= <span class="built_in">lowbit</span>(i)) ans += c[i]; <span class="keyword">return</span> ans; &#125;</span><br><span class="line">&#125;bit;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> n; <span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>, &amp;n);</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; ++i) <span class="built_in">scanf</span>(<span class="string">&quot;%d%d&quot;</span>, &amp;L[i], &amp;R[i]);</span><br><span class="line">	P[n] = L[n]; P[<span class="number">1</span>] = R[<span class="number">1</span>];</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; n; ++i)</span><br><span class="line">		<span class="keyword">if</span> (L[i] &gt; L[i + <span class="number">1</span>]) &#123; <span class="built_in">printf</span>(<span class="string">&quot;-1\n&quot;</span>); <span class="keyword">return</span> <span class="number">0</span>; &#125;</span><br><span class="line">		<span class="keyword">else</span> <span class="keyword">if</span> (L[i] != L[i + <span class="number">1</span>] &amp;&amp; !P[i]) P[i] = L[i];</span><br><span class="line">		<span class="keyword">else</span> <span class="keyword">if</span> (L[i] != L[i + <span class="number">1</span>] &amp;&amp; P[i] != L[i]) &#123; <span class="built_in">printf</span>(<span class="string">&quot;-1\n&quot;</span>); <span class="keyword">return</span> <span class="number">0</span>; &#125;</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">2</span>; i &lt;= n; ++i)</span><br><span class="line">		<span class="keyword">if</span> (R[i - <span class="number">1</span>] &gt; R[i]) &#123; <span class="built_in">printf</span>(<span class="string">&quot;-1\n&quot;</span>); <span class="keyword">return</span> <span class="number">0</span>; &#125;</span><br><span class="line">		<span class="keyword">else</span> <span class="keyword">if</span> (R[i - <span class="number">1</span>] != R[i] &amp;&amp; !P[i]) P[i] = R[i];</span><br><span class="line">		<span class="keyword">else</span> <span class="keyword">if</span> (R[i - <span class="number">1</span>] != R[i] &amp;&amp; P[i] != R[i]) &#123; <span class="built_in">printf</span>(<span class="string">&quot;-1\n&quot;</span>); <span class="keyword">return</span> <span class="number">0</span>; &#125;</span><br><span class="line">	<span class="keyword">int</span> tot = <span class="number">0</span>, now = <span class="number">1</span>;</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; ++i) vis[P[i]] = <span class="number">1</span>, tot += !!P[i]; </span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; ++i) <span class="keyword">if</span> (!vis[i]) res[++tp] = i;</span><br><span class="line">	<span class="keyword">if</span> (tp + tot &gt; n) &#123; <span class="built_in">printf</span>(<span class="string">&quot;-1\n&quot;</span>); <span class="keyword">return</span> <span class="number">0</span>; &#125;</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; ++i) <span class="keyword">if</span> (!P[i]) P[i] = res[now], ++now;</span><br><span class="line">	<span class="keyword">int</span> maxn = <span class="number">-1</span>, minx = n + <span class="number">1</span>;</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; ++i) </span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">if</span> (maxn &lt; P[i]) maxn = P[i];</span><br><span class="line">		<span class="keyword">if</span> (maxn != R[i]) &#123; <span class="built_in">printf</span>(<span class="string">&quot;-1\n&quot;</span>); <span class="keyword">return</span> <span class="number">0</span>; &#125;</span><br><span class="line">	&#125;	</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = n; i &gt;= <span class="number">1</span>; --i)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">if</span> (minx &gt; P[i]) minx = P[i];</span><br><span class="line">		<span class="keyword">if</span> (minx != L[i]) &#123; <span class="built_in">printf</span>(<span class="string">&quot;-1\n&quot;</span>); <span class="keyword">return</span> <span class="number">0</span>; &#125;</span><br><span class="line">	&#125;</span><br><span class="line">	bit.len = n; ll ans = <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; ++i)</span><br><span class="line">		ans += bit.<span class="built_in">query</span>(bit.len) - bit.<span class="built_in">query</span>(P[i]), bit.<span class="built_in">add</span>(P[i], <span class="number">1</span>);</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">&quot;%lld\n&quot;</span>, ans); <span class="keyword">return</span> <span class="number">0</span>;	</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h4 id="F-Creative-Splitting"><a href="#F-Creative-Splitting" class="headerlink" title="F - Creative Splitting"></a>F - Creative Splitting</h4><p>这道题大概可能也许看懂了，但是还没太理清楚思路，只是把参考着 $\text{\color{black}B\color{red}enq}$ 的代码敲了一遍，等到明天理清楚了再写吧。</p>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>不知道写啥，那就先放着吧，明天写。</p>
+<p>我是不是还有个 CSP-S 的 $\tt T4$ 要 <strong>明天</strong> 写来着（</p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/AGC/" rel="tag"># AGC</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2022/01/24/AtCoder%20Regular%20Contest%20125/" rel="prev" title="AtCoder Regular Contest 125">
+      <i class="fa fa-chevron-left"></i> AtCoder Regular Contest 125
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2022/01/24/AtCoder%20Grand%20Contest%20012/" rel="next" title="AtCoder Grand Contest 012">
+      AtCoder Grand Contest 012 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#AtCoder-Grand-Contest-055%E8%80%83%E8%AF%95%E6%80%BB%E7%BB%93"><span class="nav-number">1.</span> <span class="nav-text">AtCoder Grand Contest 055考试总结</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE"><span class="nav-number">1.1.</span> <span class="nav-text">题目</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#A-ABC-Identity"><span class="nav-number">1.1.1.</span> <span class="nav-text">A - ABC Identity</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#B-ABC-Supremacy"><span class="nav-number">1.1.2.</span> <span class="nav-text">B - ABC Supremacy</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#C-Weird-LIS"><span class="nav-number">1.1.3.</span> <span class="nav-text">C - Weird LIS</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#D-ABC-Ultimatum"><span class="nav-number">1.1.4.</span> <span class="nav-text">D - ABC Ultimatum</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#E-Set-Merging"><span class="nav-number">1.1.5.</span> <span class="nav-text">E - Set Merging</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#F-Creative-Splitting"><span class="nav-number">1.1.6.</span> <span class="nav-text">F - Creative Splitting</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%80%BB%E7%BB%93"><span class="nav-number">1.2.</span> <span class="nav-text">总结</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">zhiyangfan</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">23</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-name">标签</span>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">zhiyangfan</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> 强力驱动
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+      
+
+<script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      loader: {
+        source: {
+          '[tex]/amsCd': '[tex]/amscd',
+          '[tex]/AMScd': '[tex]/amscd'
+        }
+      },
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              let target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    (function () {
+      var script = document.createElement('script');
+      script.src = '//cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js';
+      script.defer = true;
+      document.head.appendChild(script);
+    })();
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+    
+
+  
+
+</body>
+</html>

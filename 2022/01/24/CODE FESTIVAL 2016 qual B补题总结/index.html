@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 6.0.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"zhiyangfan1234.github.io","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="CODE FESTIVAL 2016 qual B补题总结xs 做完 A,B,C,D 全都一遍过的时候我以为我要 AK 了，结果被 E 题干死了，思路稍微有点被弦论那道题带走了。 题目A - Signboard给出一个长为 $16$ 的字符串，求出至少需要改变多少字符才能变为 CODEFESTIVAL2016。 至少比上一把的 A 难了点吧 总之就是按位一个个比就行了。12345678910#in">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CODE FESTIVAL 2016 qual B">
+<meta property="og:url" content="https://zhiyangfan1234.github.io/2022/01/24/CODE%20FESTIVAL%202016%20qual%20B%E8%A1%A5%E9%A2%98%E6%80%BB%E7%BB%93/index.html">
+<meta property="og:site_name" content="zhiyangfan 的博客小窝">
+<meta property="og:description" content="CODE FESTIVAL 2016 qual B补题总结xs 做完 A,B,C,D 全都一遍过的时候我以为我要 AK 了，结果被 E 题干死了，思路稍微有点被弦论那道题带走了。 题目A - Signboard给出一个长为 $16$ 的字符串，求出至少需要改变多少字符才能变为 CODEFESTIVAL2016。 至少比上一把的 A 难了点吧 总之就是按位一个个比就行了。12345678910#in">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2022-01-24T09:00:23.000Z">
+<meta property="article:modified_time" content="2022-01-24T09:13:06.726Z">
+<meta property="article:author" content="zhiyangfan">
+<meta property="article:tag" content="AGC">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="https://zhiyangfan1234.github.io/2022/01/24/CODE%20FESTIVAL%202016%20qual%20B%E8%A1%A5%E9%A2%98%E6%80%BB%E7%BB%93/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>CODE FESTIVAL 2016 qual B | zhiyangfan 的博客小窝</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">zhiyangfan 的博客小窝</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://zhiyangfan1234.github.io/2022/01/24/CODE%20FESTIVAL%202016%20qual%20B%E8%A1%A5%E9%A2%98%E6%80%BB%E7%BB%93/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="zhiyangfan">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="zhiyangfan 的博客小窝">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          CODE FESTIVAL 2016 qual B
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2022-01-24 17:00:23 / 修改时间：17:13:06" itemprop="dateCreated datePublished" datetime="2022-01-24T17:00:23+08:00">2022-01-24</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h2 id="CODE-FESTIVAL-2016-qual-B补题总结"><a href="#CODE-FESTIVAL-2016-qual-B补题总结" class="headerlink" title="CODE FESTIVAL 2016 qual B补题总结"></a>CODE FESTIVAL 2016 qual B补题总结</h2><p>xs 做完 A,B,C,D 全都一遍过的时候我以为我要 AK 了，结果被 E 题干死了，思路稍微有点被弦论那道题带走了。</p>
+<h3 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h3><h4 id="A-Signboard"><a href="#A-Signboard" class="headerlink" title="A - Signboard"></a>A - Signboard</h4><p>给出一个长为 $16$ 的字符串，求出至少需要改变多少字符才能变为 <code>CODEFESTIVAL2016</code>。</p>
+<p><del>至少比上一把的 A 难了点吧</del> 总之就是按位一个个比就行了。<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string&gt;</span></span></span><br><span class="line">std::string s, <span class="built_in">ss</span>(<span class="string">&quot;CODEFESTIVAL2016&quot;</span>); </span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    std::cin &gt;&gt; s; <span class="keyword">int</span> cnt = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; s.<span class="built_in">size</span>(); ++i)</span><br><span class="line">        <span class="keyword">if</span> (ss[i] != s[i]) ++cnt;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%d\n&quot;</span>, cnt); <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h4 id="B-Qualification-simulator"><a href="#B-Qualification-simulator" class="headerlink" title="B - Qualification simulator"></a>B - Qualification simulator</h4><p>给出 $n$ 个参赛者和两个常数 $A,B$，按排名递减分别考虑他们，其中 a 类选手能通过当且仅当已经确定通过的人数小于 $A+B$，b 类选手能通过当且仅当已经确定通过的人数小于 $A+B$ 且他在 b 类选手中排名 $B$ 或更高，c 类选手无法通过。现在按排名递减的顺序给出一个字符串，第 $i$ 位上表示该选手是哪一类的，排名第 $i$。求处每一位选手能否通过。($1\le n,A,B\le10^5$)</p>
+<p>模拟一下就好了，需要稍微注意一点点初始值小细节之类的问题，但总归不是很难，时间复杂度 $\mathcal{O}(n)$。<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N = <span class="number">100100</span>; <span class="keyword">char</span> s[N], ss[<span class="number">2</span>][<span class="number">4</span>] = &#123;<span class="string">&quot;No&quot;</span>, <span class="string">&quot;Yes&quot;</span>&#125;;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> n, a, b, now = <span class="number">0</span>, bnow = <span class="number">1</span>; <span class="built_in">scanf</span>(<span class="string">&quot;%d%d%d%s&quot;</span>, &amp;n, &amp;a, &amp;b, s + <span class="number">1</span>);</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>, d, dd; i &lt;= n; ++i)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> (s[i] == <span class="string">&#x27;c&#x27;</span>) d = dd = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">if</span> (s[i] == <span class="string">&#x27;a&#x27;</span>) d = now &lt; a + b, dd = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">if</span> (s[i] == <span class="string">&#x27;b&#x27;</span>) d = dd = now &lt; a + b &amp;&amp; bnow &lt;= b;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;%s\n&quot;</span>, ss[d]); now += d; bnow += dd;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h4 id="C-Gr-idian-MST"><a href="#C-Gr-idian-MST" class="headerlink" title="C - Gr-idian MST"></a>C - Gr-idian MST</h4><p>给出一个平面和 $W,H$，平面上的点 $(x,y)$ 均满足 $0\le x\le W,0\le y\le H$，在每个点 $(x,y),x,y\in \mathbf{Z}$ 上有个房子。能在所有满足 $x_1=x_2,|y_1-y_2|=1$ 或 $y_1=y_2,|x_1-x_2|=1$ 的点 $(x_1,y_1),(x_2,y_2)$ 之间修建一条路，其中对于所有 $j$，从 $(i,j)$ 到 $(i+1,j)$ 的道路价格均为 $p_i$，对于所有 $i$，从 $(i,j)$ 到 $(i,j+1)$ 的道路价格均为 $q_j$。现在想用最少的价格将所有房子连起来，求最少价格。($1\le W,H\le10^5,1\le p_i,q_j\le 10^8$)</p>
+<p>首先题目和标题都按时我们这题是道最小生成树的题，但数据范围却告诉我们直接建图搞是会爆炸的，所以我们只能慢慢模拟。注意到这道题有很多边的价格是一样的，所以我们可以考虑依然用 $\rm Kruskal$ 算法的思想，但是要一次加好多边。在一般的 $\rm Kruskal$ 算法中，一条边不能加了当且仅当它加上去会形成环，而在这道题中，我们的边一加就是一列或一行，也要考虑环的问题。手玩一下样例可以发现（没发现就多造机几组数据玩一下），以行为例，当我们想加一行边时，加不上去的边个数等于已经加了多少列的边。因为一列的边已经全加上了（如果没有全加上，则说明已经快成环了，可以类比），则那一列对应的相邻点就不能同时加上行边，即有一条边加不上去，多个列都加过边的情况类似。这样我们把边的价格排序一下，从小到大依次考虑即可，时间复杂度 $\mathcal{O}((H+W)\log (H+W))$。<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N = <span class="number">1e5</span> + <span class="number">10</span>; <span class="class"><span class="keyword">struct</span> <span class="title">road</span>&#123;</span> <span class="keyword">int</span> cost, id, pos; &#125;r[N &lt;&lt; <span class="number">1</span>];</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> n, m; <span class="built_in">scanf</span>(<span class="string">&quot;%d%d&quot;</span>, &amp;n, &amp;m); </span><br><span class="line">    <span class="keyword">long</span> <span class="keyword">long</span> tot = <span class="number">0</span>, aim = <span class="number">1ll</span> * (n + <span class="number">1</span>) * (m + <span class="number">1</span>) - <span class="number">1</span>, ans = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; ++i) <span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>, &amp;r[i].cost), r[i].id = <span class="number">1</span>, r[i].pos = i;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = n; i &lt; m + n; ++i) <span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>, &amp;r[i].cost), r[i].id = <span class="number">2</span>, r[i].pos = i - n;</span><br><span class="line">    std::<span class="built_in">sort</span>(r, r + n + m, </span><br><span class="line">    [&amp;](<span class="keyword">const</span> road&amp; r1, <span class="keyword">const</span> road&amp; r2) &#123; <span class="keyword">return</span> r1.cost &lt; r2.cost; &#125;);</span><br><span class="line">    <span class="keyword">int</span> cnth = <span class="number">0</span>, cntw = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n + m; ++i)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> (r[i].id == <span class="number">1</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">int</span> d = m + <span class="number">1</span> - cnth;</span><br><span class="line">            tot += d; ans += <span class="number">1ll</span> * d * r[i].cost; ++cntw; </span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">int</span> d = n + <span class="number">1</span> - cntw;</span><br><span class="line">            tot += d; ans += <span class="number">1ll</span> * d * r[i].cost; ++cnth;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (tot == aim) <span class="keyword">break</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%lld\n&quot;</span>, ans); <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h4 id="D-Greedy-customers"><a href="#D-Greedy-customers" class="headerlink" title="D - Greedy customers"></a>D - Greedy customers</h4><p>商店前有一列共 $n$ 名顾客，每个顾客有 $a_i$ 元，商店老板每轮销售会展示一个商品，它的价格为 $P$，并从前向后询问，如果一个顾客满足 $a_i\ge P$，则询问到他时他就会买下这个商品，本轮结束。现在商店老板想进行尽可能多的轮次，并让顾客有钱回家，即所有的轮次进行完后所有顾客手中剩下的前大于 $0$，求出最多能进行多少轮。($1\le n\le10^5,1\le a_i\le 10^9$)</p>
+<p>考虑一个显然的贪心策略，依次考虑每个人作为销售对象，每轮卖的东西价格尽量便宜，这样就能卖更多轮。但策略的问题是如果价格便宜到等于前面人手中剩下的钱，就会让前面的人剩下的前等于 $0$。所以价格应该满足的是大于前面所有人的最大值中尽量小的。但这样也有问题，因为我们想让前面的最大值尽量小，所以当我们面对比如卖 $3,4$ 元都行的局面（这种情况发生在对于当前销售对象，最多只能售卖一轮），就要卖尽量大的价格，这样才能让这个人对之后的决策影响最小。可能说的不是很清楚，具体见代码，时间复杂度 $\mathcal{O}(n)$。<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N = <span class="number">1e5</span> + <span class="number">10</span>; <span class="keyword">int</span> a[N];</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> n; <span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>, &amp;n); <span class="keyword">long</span> <span class="keyword">long</span> ans = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; ++i) <span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>, &amp;a[i]);</span><br><span class="line">    ans = a[<span class="number">1</span>] - <span class="number">1</span>; <span class="keyword">int</span> maxn = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">2</span>, d; i &lt;= n; ++i)</span><br><span class="line">    &#123;</span><br><span class="line">        d = (a[i] - <span class="number">1</span>) / (maxn + <span class="number">1</span>);</span><br><span class="line">        ans += d; a[i] = !d ? a[i] : <span class="number">1</span>;</span><br><span class="line">        maxn = std::<span class="built_in">max</span>(maxn, a[i]);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%lld\n&quot;</span>, ans); <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h4 id="E-Lexicographical-disorder"><a href="#E-Lexicographical-disorder" class="headerlink" title="E - Lexicographical disorder"></a>E - Lexicographical disorder</h4><p>给出 $n$ 个只含有小写字母的字符串，第 $i$ 个字符串标记为 $S_i$，且 $\forall i\ne j,S_i\ne S_j$。接下来有 $q$ 次询问，每次询问给出 $k$ 和 $p$，其中 $p$ 为字母 $\tt a\sim z$ 的排列，求出 $S_k$ 按照 $p_1&lt;p_2&lt;\cdot\cdot\cdot&lt;p_{26}$ 的字典序排序后在原序列中的排名。($1\le n,q\le10^5,\sum |S_i|\le 4\times10^5$，保证输入合法)</p>
+<p>注意到一个字符串 $s$ 小于一个字符串 $t$ 当且仅当下列条件成立其一：</p>
+<ol>
+<li>$s$ 是 $t$ 的前缀。</li>
+<li>在 $s,t$ 第一次出现不同字符的位置上，$s$ 的字符小于 $t$ 的字符。</li>
+</ol>
+<p>我们挨个讨论，对于条件 1，对于任意的字符串，不管给出的字典序是什么样的，前缀关系是不会变的，所以我们可以在回答询问之前先用 $\rm Trie$ 树求出这样的关系。</p>
+<p>接下来看看条件 2，$s,t$ 第一次出现不同字符的位置也不依赖给出的字典序，所以我们依然可以先用 $\rm Trie$ 树求出这些位置，然后每次询问把 $S_k$ 和其他字符串比较这些地方，这样就能找到所有比 $S_k$ 小的字符串且不是 $S_k$ 前缀的数量。</p>
+<p>但是这样朴素的比较回答询问的复杂度是 $\mathcal{O}(n)$ 的，无法接受。注意到小写字母总共只有 $26$ 个，也就是我们最多只需要比较 $26^2$ 对字符的大小关系，如果能提前预处理出来每对大小关系会贡献多少个比 $S_k$ 小的字符串，就可以做到以 $\mathcal{O}(|\sum|^2)$ 的复杂度回答询问，其中 $\sum$ 表示字符集。而上面所说的前缀数量，第一个不一样的位置和大小关系贡献的数量，都可以用 $\rm Trie$ 树在 $\mathcal{O}(|\sum|^2S)$ 的复杂度求出，其中 $S$ 表示所有字符串的长度和。</p>
+<p>具体来讲，对于前缀的个数，我们构造出 $\rm Trie$ 树后在上面跑一遍 $\rm dfs$，用一个 <code>s</code> 记录一下从根节点到这个结点一共经过了多少个结束标志，则如果这个结点有 $k$ 的结束标记，那 $S_k$ 的前缀个数一共就有 <code>s</code> 个。注意到如果我们把 $S_k$ 本身看做自己的前缀，最后回答询问时就没必要再加一了。而对于第一个不一样的位置我们没必要求出来，因为我们只需要知道的是每对关系贡献的数量。对于每对关系贡献的数量，我们再跑一遍 $\rm dfs$，对于每个结点的两个儿子统计一下大小就可以了，具体实现见代码，总之最终可以做到 $\mathcal{O}(|\sum|^2S+q|\sum|^2)$ 的复杂度，足以通过本题。<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N = <span class="number">4e5</span> + <span class="number">10</span>;</span><br><span class="line"><span class="keyword">char</span> s[N]; <span class="keyword">int</span> sz[N], size[N], pos[N], fa[N], ch[N][<span class="number">26</span>];</span><br><span class="line"><span class="keyword">int</span> id[N], n, q, tot, cnt[N][<span class="number">26</span>][<span class="number">26</span>];</span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">insert</span><span class="params">(<span class="keyword">int</span> k, <span class="keyword">int</span> len)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> p = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>, c; i &lt;= len; ++i)</span><br><span class="line">    &#123;</span><br><span class="line">        c = s[i] - <span class="string">&#x27;a&#x27;</span>;</span><br><span class="line">        <span class="keyword">if</span> (!ch[p][c]) ch[p][c] = ++tot;</span><br><span class="line">        p = ch[p][c]; ++sz[p];</span><br><span class="line">    &#125;</span><br><span class="line">    id[p] = k; pos[k] = p;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">dfs</span><span class="params">(<span class="keyword">int</span> p, <span class="keyword">int</span> f, <span class="keyword">int</span> s)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    fa[p] = f; <span class="keyword">if</span> (f == <span class="number">-1</span>) fa[p] = p; <span class="comment">//fa[p]=p 表示这个点没有分支了</span></span><br><span class="line">    <span class="keyword">if</span> (id[p]) ++s, size[id[p]] = s; <span class="keyword">int</span> cp = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">26</span>; ++i) cp += (ch[p][i] != <span class="number">0</span>);</span><br><span class="line">    f = fa[p]; <span class="keyword">if</span> (cp &gt; <span class="number">1</span>) f = <span class="number">-1</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">26</span>; ++i) <span class="keyword">if</span> (ch[p][i]) <span class="built_in">dfs</span>(ch[p][i], f, s);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">dfs2</span><span class="params">(<span class="keyword">int</span> p, <span class="keyword">int</span> f)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (p &amp;&amp; fa[p] == p) <span class="comment">//而如果这个点没有分支则就要从之前的结点继承过来</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">26</span>; ++i)</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; <span class="number">26</span>; ++j) cnt[p][i][j] += cnt[f][i][j];</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">26</span>; ++i) <span class="keyword">if</span> (ch[p][i])</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> j = i + <span class="number">1</span>; j &lt; <span class="number">26</span>; ++j) <span class="keyword">if</span> (ch[p][j])</span><br><span class="line">            &#123;</span><br><span class="line">                cnt[ch[p][i]][j][i] += sz[ch[p][j]];</span><br><span class="line">                cnt[ch[p][j]][i][j] += sz[ch[p][i]];</span><br><span class="line">            &#125;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">26</span>; ++i)</span><br><span class="line">        <span class="keyword">if</span> (ch[p][i]) <span class="built_in">dfs2</span>(ch[p][i], fa[p]);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>, &amp;n);</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; ++i)</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">&quot;%s&quot;</span>, s + <span class="number">1</span>), <span class="built_in">insert</span>(i, <span class="built_in">strlen</span>(s + <span class="number">1</span>));</span><br><span class="line">    <span class="built_in">dfs</span>(<span class="number">0</span>, <span class="number">-1</span>, <span class="number">0</span>); <span class="built_in">dfs2</span>(<span class="number">0</span>, <span class="number">-1</span>); <span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>, &amp;q);</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>, k, res; i &lt;= q; ++i)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">&quot;%d%s&quot;</span>, &amp;k, s); res = size[k];</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; <span class="number">26</span>; ++j)</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> l = j + <span class="number">1</span>; l &lt; <span class="number">26</span>; ++l)</span><br><span class="line">                res += cnt[fa[pos[k]]][s[j] - <span class="string">&#x27;a&#x27;</span>][s[l] - <span class="string">&#x27;a&#x27;</span>];</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;%d\n&quot;</span>, res);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>这把 AGC 比较有价值的就是最后一题提供的 $\rm Trie$ 树上找拐点和前缀来快速回答询问的思路了。之前做的弦论那道题是在 $\rm SAM$ 上面像在平衡树上回答第 $k$ 大一样的思路 跳来跳去，但这道题却因为时间复杂度不对不能这样做。但找到题目中什么量什么信息在询问中是不变的就可以把询问化到一个比较简单的形式，并用预处理提前找到那些不变的信息。</p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/AGC/" rel="tag"># AGC</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2022/01/24/CODE%20FESTIVAL%202016%20qual%20A%E8%A1%A5%E9%A2%98%E6%80%BB%E7%BB%93/" rel="prev" title="CODE FESTIVAL 2016 qual A">
+      <i class="fa fa-chevron-left"></i> CODE FESTIVAL 2016 qual A
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2022/01/24/CODE%20FESTIVAL%202016%20Final%E8%A1%A5%E9%A2%98%E6%80%BB%E7%BB%93/" rel="next" title="CODE FESTIVAL 2016 Final">
+      CODE FESTIVAL 2016 Final <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#CODE-FESTIVAL-2016-qual-B%E8%A1%A5%E9%A2%98%E6%80%BB%E7%BB%93"><span class="nav-number">1.</span> <span class="nav-text">CODE FESTIVAL 2016 qual B补题总结</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE"><span class="nav-number">1.1.</span> <span class="nav-text">题目</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#A-Signboard"><span class="nav-number">1.1.1.</span> <span class="nav-text">A - Signboard</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#B-Qualification-simulator"><span class="nav-number">1.1.2.</span> <span class="nav-text">B - Qualification simulator</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#C-Gr-idian-MST"><span class="nav-number">1.1.3.</span> <span class="nav-text">C - Gr-idian MST</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#D-Greedy-customers"><span class="nav-number">1.1.4.</span> <span class="nav-text">D - Greedy customers</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#E-Lexicographical-disorder"><span class="nav-number">1.1.5.</span> <span class="nav-text">E - Lexicographical disorder</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%80%BB%E7%BB%93"><span class="nav-number">1.2.</span> <span class="nav-text">总结</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">zhiyangfan</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">23</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-name">标签</span>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">zhiyangfan</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> 强力驱动
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+      
+
+<script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      loader: {
+        source: {
+          '[tex]/amsCd': '[tex]/amscd',
+          '[tex]/AMScd': '[tex]/amscd'
+        }
+      },
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              let target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    (function () {
+      var script = document.createElement('script');
+      script.src = '//cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js';
+      script.defer = true;
+      document.head.appendChild(script);
+    })();
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+    
+
+  
+
+</body>
+</html>

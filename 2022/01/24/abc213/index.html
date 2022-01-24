@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 6.0.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"zhiyangfan1234.github.io","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="Atcoder Beginner Contest 213发挥稳定，依然是做到D题，依然是rk 1400。 A - Bitwise Exclusive Or给定两个整数 $A,B$ ，求出一个 $C$ 使得 $A \operatorname{xor}C&#x3D;B$ 。（ $0\le A,B\le 255$ ） 注意到 $A \operatorname{xor} C&#x3D;B$ 等价于 $A\operatorna">
+<meta property="og:type" content="article">
+<meta property="og:title" content="AtCoder Beginner Contest 213">
+<meta property="og:url" content="https://zhiyangfan1234.github.io/2022/01/24/abc213/index.html">
+<meta property="og:site_name" content="zhiyangfan 的博客小窝">
+<meta property="og:description" content="Atcoder Beginner Contest 213发挥稳定，依然是做到D题，依然是rk 1400。 A - Bitwise Exclusive Or给定两个整数 $A,B$ ，求出一个 $C$ 使得 $A \operatorname{xor}C&#x3D;B$ 。（ $0\le A,B\le 255$ ） 注意到 $A \operatorname{xor} C&#x3D;B$ 等价于 $A\operatorna">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://img.atcoder.jp/ghi/0bece76ac097ab765a3a47bb7ac8121c.png">
+<meta property="og:image" content="https://img.atcoder.jp/ghi/a5bf1fb11f7625ac9f4f55c2ed613799.png">
+<meta property="og:image" content="https://img.atcoder.jp/ghi/33c3cad73feb06d6fb61a55d6f4755ee.png">
+<meta property="og:image" content="https://img.atcoder.jp/ghi/07b11ffb55d27dd226016ce99cd12f22.png">
+<meta property="article:published_time" content="2022-01-24T09:00:23.000Z">
+<meta property="article:modified_time" content="2022-01-24T09:29:51.803Z">
+<meta property="article:author" content="zhiyangfan">
+<meta property="article:tag" content="Atcoder">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://img.atcoder.jp/ghi/0bece76ac097ab765a3a47bb7ac8121c.png">
+
+<link rel="canonical" href="https://zhiyangfan1234.github.io/2022/01/24/abc213/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>AtCoder Beginner Contest 213 | zhiyangfan 的博客小窝</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">zhiyangfan 的博客小窝</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://zhiyangfan1234.github.io/2022/01/24/abc213/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="zhiyangfan">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="zhiyangfan 的博客小窝">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          AtCoder Beginner Contest 213
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2022-01-24 17:00:23 / 修改时间：17:29:51" itemprop="dateCreated datePublished" datetime="2022-01-24T17:00:23+08:00">2022-01-24</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h2 id="Atcoder-Beginner-Contest-213"><a href="#Atcoder-Beginner-Contest-213" class="headerlink" title="Atcoder Beginner Contest 213"></a>Atcoder Beginner Contest 213</h2><p>发挥稳定，依然是做到D题，依然是rk 1400。</p>
+<h3 id="A-Bitwise-Exclusive-Or"><a href="#A-Bitwise-Exclusive-Or" class="headerlink" title="A - Bitwise Exclusive Or"></a>A - Bitwise Exclusive Or</h3><p>给定两个整数 $A,B$ ，求出一个 $C$ 使得 $A \operatorname{xor}C=B$ 。（ $0\le A,B\le 255$ ）</p>
+<p>注意到 $A \operatorname{xor} C=B$ 等价于 $A\operatorname{xor}B=C$ ， $\mathcal{O}(1)$ 计算即可。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> a, b; <span class="built_in">scanf</span>(<span class="string">&quot;%d%d&quot;</span>, &amp;a, &amp;b);</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">&quot;%d&quot;</span>, a ^ b);</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="B-Booby-Prize"><a href="#B-Booby-Prize" class="headerlink" title="B - Booby Prize"></a><strong>B - Booby Prize</strong></h3><p>给出长度为 $n$ 的序列 $a$ ，求序列第 $2$ 大元素的编号。（ $2\le n\le 2\times10^5,1\le a_i\le10^9,\forall i\neq j,a_i\neq a_j$ ）</p>
+<p>建立结构体记录权值$a_i$ 和 $i$ ，按 $a_i$ 为第一关键字排序后输出第 $2$ 大元素记录的编号即可，复杂度 $\mathcal{O}(n\log n)$</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N = <span class="number">2e5</span> + <span class="number">10</span>;</span><br><span class="line">std::pair&lt;<span class="keyword">int</span>, <span class="keyword">int</span>&gt; p[N];</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> n; <span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>, &amp;n);</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i++)</span><br><span class="line">		<span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>, &amp;p[i].first), p[i].second = i;</span><br><span class="line">	std::<span class="built_in">sort</span>(p + <span class="number">1</span>, p + <span class="number">1</span> + n);</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">&quot;%d&quot;</span>, p[n - <span class="number">1</span>].second);</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="C-Reorder-Cards"><a href="#C-Reorder-Cards" class="headerlink" title="C - Reorder Cards"></a><strong>C - Reorder Cards</strong></h3><p>给出一个 $H\times W$ 的网格图，给出 $n$ 个互不相同的点，对于第 $i$ 个点 $(a_i,b_i)$ 上有数字 $i$ ，其余点无数字。之后不断执行以下操作：</p>
+<ul>
+<li><p>如果一行没有任何有数字的点，就将其删去，并将其余的点向上移动来填补空隙；</p>
+</li>
+<li><p>如果一列没有任何有数字的点，就将其删去，并将其余的点向左移动来填补空隙。</p>
+</li>
+</ul>
+<p>问在最终的网格图中，数字 $i(1\le i\le n)$ 所在的点。（ $1\le H,W\le10^9,1\le n \le \min(10^5,H\times W)$ ）</p>
+<p>注意到如果最终能留下来的行或列都是最初存在数字的行或列，其余的都会被删去，所以这些存在数字的行或列就会挨在一起。这个过程非常类似离散化的过程。所以我们将 $a_i,b_i$ 分别离散化后输出即可，复杂度 $\mathcal{O}(n\log n)$ 。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;map&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N = <span class="number">1e5</span> + <span class="number">10</span>; std::map&lt;<span class="keyword">int</span>, <span class="keyword">int</span>&gt; mp1, mp2;</span><br><span class="line"><span class="keyword">int</span> ai[N], bi[N]; <span class="class"><span class="keyword">struct</span> <span class="title">pnt</span> &#123;</span> <span class="keyword">int</span> x, y; &#125;p[N];</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> h, w, n; <span class="built_in">scanf</span>(<span class="string">&quot;%d%d%d&quot;</span>, &amp;h, &amp;w, &amp;n);</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i++) </span><br><span class="line">		<span class="built_in">scanf</span>(<span class="string">&quot;%d%d&quot;</span>, &amp;ai[i], &amp;bi[i]), p[i].x = ai[i], p[i].y = bi[i];</span><br><span class="line">	std::<span class="built_in">sort</span>(ai + <span class="number">1</span>, ai + <span class="number">1</span> + n); std::<span class="built_in">sort</span>(bi + <span class="number">1</span>, bi + <span class="number">1</span> + n);</span><br><span class="line">	<span class="keyword">int</span> x1 = std::<span class="built_in">unique</span>(ai + <span class="number">1</span>, ai + <span class="number">1</span> + n) - ai - <span class="number">1</span>;</span><br><span class="line">	<span class="keyword">int</span> x2 = std::<span class="built_in">unique</span>(bi + <span class="number">1</span>, bi + <span class="number">1</span> + n) - bi - <span class="number">1</span>;</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= x1; i++) mp1[ai[i]] = i;</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= x2; i++) mp2[bi[i]] = i;</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i++)</span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">&quot;%d %d\n&quot;</span>, mp1[p[i].x], mp2[p[i].y]);</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="D-Takahashi-Tour"><a href="#D-Takahashi-Tour" class="headerlink" title="D - Takahashi Tour"></a><strong>D - Takahashi Tour</strong></h3><p>给出一棵有 $n$  个结点的树，从 $1$ 结点出发。每到一个结点 $i$ 执行以下操作：</p>
+<ul>
+<li><p>如果存在还未访问的，直接与 $i$ 相连的结点，移动到所有这样的结点中编号最小的那个；</p>
+</li>
+<li><p>否则：如果 $i=1$ ，结束整个过程；否则，返回上一个到达的结点。</p>
+</li>
+</ul>
+<p>问访问序列。（ $2\le n\le 2\times10^5$ ）</p>
+<p>注意到如果没有编号最小的限制，这个题就是个dfs的裸题，每到一个结点和回溯时输出当前结点的编号即可。加上编号最小的限制后可以每次寻找可以到达的点时不着急访问，而是存到堆里。等到全部找完后再从不断堆顶访问即可。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;queue&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N = <span class="number">2e5</span> + <span class="number">10</span>;</span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">edge</span>&#123;</span> <span class="keyword">int</span> v, next; &#125;E[N &lt;&lt; <span class="number">1</span>]; <span class="keyword">int</span> p[N], cnt, vis[N];</span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">init</span><span class="params">()</span> </span>&#123; <span class="built_in">memset</span>(p, <span class="number">-1</span>, <span class="keyword">sizeof</span> p); cnt = <span class="number">0</span>; &#125;</span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">insert</span><span class="params">(<span class="keyword">int</span> u, <span class="keyword">int</span> v)</span> </span>&#123; E[cnt].v = v; E[cnt].next = p[u]; p[u] = cnt++; &#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">dfs</span><span class="params">(<span class="keyword">int</span> u)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	vis[u] = <span class="number">1</span>;</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">&quot;%d &quot;</span>, u); std::priority_queue&lt;<span class="keyword">int</span>, std::vector&lt;<span class="keyword">int</span>&gt;, std::greater&lt;<span class="keyword">int</span>&gt; &gt; pq;</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = p[u], v; i + <span class="number">1</span>; i = E[i].next)</span><br><span class="line">	&#123;</span><br><span class="line">		v = E[i].v; <span class="keyword">if</span> (vis[v]) <span class="keyword">continue</span>;</span><br><span class="line">		pq.<span class="built_in">push</span>(v);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">while</span> (!pq.<span class="built_in">empty</span>()) <span class="built_in">dfs</span>(pq.<span class="built_in">top</span>()), pq.<span class="built_in">pop</span>(), <span class="built_in">printf</span>(<span class="string">&quot;%d &quot;</span>, u);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="built_in">init</span>(); <span class="keyword">int</span> n; <span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>, &amp;n);</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>, x, y; i &lt; n; i++)</span><br><span class="line">		<span class="built_in">scanf</span>(<span class="string">&quot;%d%d&quot;</span>, &amp;x, &amp;y), <span class="built_in">insert</span>(x, y), <span class="built_in">insert</span>(y, x);</span><br><span class="line">	<span class="built_in">dfs</span>(<span class="number">1</span>);</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="E-Stronger-Takahashi"><a href="#E-Stronger-Takahashi" class="headerlink" title="E - Stronger Takahashi"></a><strong>E - Stronger Takahashi</strong></h3><p>给出一个 $H\times W$ 的网格图，每个点有两种值，一种是 <code>.</code> 表示可以通过，一种是 <code>#</code> 表示无法通过。现在要从左上角到右下角，在行进的过程中，可以选择使用能力将一个$2\times 2$ 的区域全部变成 <code>.</code> 。问想要到达目的地最少需要使用能力的次数。（ $2\le H,W\le 500$ ）</p>
+<p>假设只在行进需要时使用能力，这样释放能力的位置就一定是挨着当前结点了。那么注意到如果在编号为 $T$ 的点使用能力后，下图中所有标号为 <code>*</code> 的点都可以走到。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">.***.</span><br><span class="line">*****</span><br><span class="line">**T**</span><br><span class="line">*****</span><br><span class="line">.***.</span><br></pre></td></tr></table></figure>
+<p>这样，我们发现直接走到相邻的位置花费为 $0$ ，使用能力后走到 <code>*</code> 花费为 $1$ 。01-BFS 求解即可，复杂度 $\mathcal{O}(HW)$ 。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure>
+<h3 id="F-Common-Prefixes"><a href="#F-Common-Prefixes" class="headerlink" title="F - Common Prefixes"></a><strong>F - Common Prefixes</strong></h3><p>对于两个字符串 $X,Y$ 定义 $f(X,Y)$ 表示它们最长公共前缀的长度。给出一个长为 $n$ 的字符串 $S$ ，设 $S_i$ 表示 $S$ 以 $i$ 开头的后缀，求 $\sum_{k=1}^n \sum_{i=1}^n f(S_i,S_k)$ 。（ $1\le n\le10^6$ ）</p>
+<p>注意到对于三个字符串$A,B,C$ ，如果字典序满足 $A&lt;B&lt;C$ ，则 $f(A,C)=\min(f(A,B),f(B,C))$ 。如果要利用这条性质，我们就要对原字符串的后缀进行排序，自然想到 SA，可以在 $\mathcal{O}(n)$ 的时间求出。排好序后，就有对于所有 $i&lt;j$ $f(S_{SA_i},f_{SA_j})=\min(f(S_{SA_i},S_{SA_{i+1}}),\cdot\cdot\cdot,f(S_{SA_{j-1}},S_{SA_j})$  ，注意到所有的 $f$ 函数的两个参数在 SA 数组中均相邻，这个可以用 LCPA 预处理，可以在 $\mathcal{O}(n)$ 的时间求出。这样，$f(S_{SA_i},S_{SA_j})=\min(LCPA_i,\cdot\cdot\cdot LCPA_{j-1})$ 。原问题就变为了：给出一个长为 $n$ 的序列 $A$ ，对于 $i&lt;j$ 令$g(i,j)=\min(A_i,A_{i+1},\cdot\cdot\cdot,A_{j-1})$ ，求 $\sum_{k=1}^n\sum_{i=}^n g(k,i)$ 。</p>
+<p>我们令 $B_k=g(1,k)+g(2,k)+\cdot\cdot\cdot+g(k-1,k)$ ，也就是原问题的前半部分，后半部分可以用类似的方式求出。我们尝试从 $k=1$ 递推求出$B$ 。考虑如何从 $B_k$ 递推至 $B_{k+1}$ 。</p>
+<p>$B_k=g(1,k)+\cdot\cdot\cdot+g(k-1,k)$</p>
+<p>$B_{k+1}=g(1,k+1)+\cdot\cdot\cdot+g(k-1,k+1)+g(k,k+1)$</p>
+<pre><code>       $=\min(g(1,k),A_k)+\cdot\cdot\cdot\min(g(k-1,k),A_k)+A_k$ 
+</code></pre><p>也就是在 $B_k$ 的基础上先区间跟 $A_k$ 取 $\min$ 再加上 $A_k$ 。如果暴力实现是 $\mathcal{O}(n^2)$ ，而使用吉司机线段树，有序可重集合，或优先队列实现，复杂度为 $\mathcal{O}(n\log n)$ （后两种的实现原理是，记录每个值和它们的出现次数，每次操作会至多减少 $\mathcal{O}(n)$ 的不同数字，所以最坏复杂度为 $\mathcal{O}(n\log n)$）。注意到新增的数字 $A_k$ 大于等于取完 $\min$ 后的原序列的最大值，所以我们可以只用栈来维护，复杂度 $\mathcal{O}(n)$ 。总复杂度 $\mathcal{O}(n)$ 。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure>
+<h3 id="G-Connectivity-2"><a href="#G-Connectivity-2" class="headerlink" title="G - Connectivity 2"></a><strong>G - Connectivity 2</strong></h3><p>给出一个 $n$ 个点 $m$ 条边的无向图 $G$。考虑从 $G$ 中删除 $0$ 条或更多条边，这样总共可以得到 $2^m$ 张图，在它们之中，对于所有 $2\le k\le n$ ，找出所有满足结点 $1$ 和 $k$ 连通的图的个数，答案对 $998244353$ 取模。（ $2\le n\le 17 ,0\le m\le \frac{n(n-1)}{2}$ ，无重边，自环 ）</p>
+<p>这道题是连通图上的组合问题，需要用到状压DP 。首先注意到我们可以在 $\mathcal{O}(3^n)$ 的时间内枚举子集。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; (<span class="number">1</span> &lt;&lt; N); i++)</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">int</span> j = i; j &gt;= <span class="number">0</span>; j--)</span><br><span class="line">  &#123;</span><br><span class="line">    j &amp;= i;</span><br><span class="line">    <span class="comment">// j是i的子集</span></span><br><span class="line">  &#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>首先注意到 $1$ 和 $k$ 连通这个条件不好求，所以我们考虑转化。设 $V={1,2,\cdot\cdot\cdot,n}$ 表示 $G$ 的点集。对于 $S\subseteq V$ ，我们定义 $f_S$ 和 $g_S$ ：</p>
+<ul>
+<li><p>$f_S$ 表示图 $G$ 以 $S\subseteq V$ 为点集的连通子图个数；</p>
+</li>
+<li><p>$g_S$ 表示图 $G$ 以 $S\subseteq V$ 为点集的子图个数。</p>
+</li>
+</ul>
+<p>接着，我们以图论的方式形式化我们要求的答案：求一个图所有 $1$ 和 $k$ 连通的支撑子图的数量，我们把它定义为 $C_k$ ，然后考虑怎么利用 $f_S$ 和 $g_S$ 来计算 $C_k$。易得有 $C_k=\sum_{\{1,k\}\subseteq S\subseteq V}f_Sg_{V/S}$ ，其中 $V/S$ 表示全集为 $V$ ，$S$ 的补集。这样，只要我们对于所有 $S\subseteq V$ 求出 $f_S,g_S$ ，就能在 $\mathcal{O}(n2^n)$ 的时间求出 $C$ 。</p>
+<p>考虑如何计算 $f_S,g_S$ 。显然，计算 $g_S$ 来的更简单一些。我们设 $e$ 表示连接 $S$ 中顶点的边的个数，则 $g_S=2^e$ 。所以我们设 $E_S$ 表示 $G$ 中所有只连接 $S$ 内点的边的个数 。接着我们就可以在 $\mathcal{O}(m)$ 的时间计算 $E_S$ （枚举每一条边是否符合条件）。这样求出 $g_S$ 算上枚举 $S$ 的复杂度为$\mathcal{O}(m2^n)$ 。</p>
+<p>最后考虑如何计算 $f_S$ ，它可以用带有容斥思想的DP求出。当  $S=\emptyset$ 时，显然有 $f_S=g_S$ 。而在其他情况，我们注意到 $f_S=g_S-k_S$ ，其中 $k_S$ 表示以 $S$ 为点集的图中不连通的个数。考虑用 $f,g$ 来表示 $k$ 。易得有 $k_S=\sum_{v\in T\subsetneq S}f_Tg_{S/T}$ ，则 $f_S=g_S-\sum_{v\in T\subsetneq S}f_Tg_{S/T}$  。这样我们就能递推出 $f_S$ ，总复杂度 $\mathcal{O}(3^n)$ 。最终复杂度 $\mathcal{O}(3^n+m2^n+n2^n)$ 。</p>
+<p>注意到可以用 <code>Fast Zeta Transform</code> 来加速 $g$ 的计算至 $\mathcal{O}(n2^n)$ 。求 $f_S$ 还有一种更快的 $\mathcal{O}(n^22^n)$ 的方式。这里都不再讨论。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure>
+<h3 id="H-Stroll"><a href="#H-Stroll" class="headerlink" title="H - Stroll"></a><strong>H - Stroll</strong></h3><p>给出一个有 $n$ 个结点的图，有 $m$ 对点被无向边连接，如果设第 $i$ 对点是 $(a_i,b_i)$ ，则共有 $p_{i,d}$ 条长度为 $d$ 的边连接点 $a_i$ 和 $b_i$ 。现在询问满足以下条件的序列共有多少个：</p>
+<ul>
+<li><p>形式形如 $\left\langle v_0,e_0,v_1,\cdot\cdot\cdot,e_{k-1},v_k\right\rangle$ ，其中 $v_i$ 表示一个顶点，$e_i$ 表示一条边；</p>
+</li>
+<li><p>$e_i$ 连接 $v_i$ 和 $v_{i+1}$ ，$v_0=v_k=1$；</p>
+</li>
+<li><p>$\sum_{i=0}^{k-1} d_i=T$ ，其中 $d_i$ 表示 $e_i$ 的长度。</p>
+</li>
+</ul>
+<p>答案对 $998244353$ 取模。（ $2\le n\le 10,1\le m\le \min(10,\frac{n(n-1)}{2}),1\le T\le 4\times 10^4,0\le p_{i,j}&lt;998244353$ ，无重边，自环 ）</p>
+<p>这个题用到了分块FFT，它是一个找一个序列的值的强有力的工具。这是FFT或者说卷积一种比较难的应用，但一旦理解，它能在大概 $20$ 行内实现。</p>
+<p>首先先考虑朴素的DP。我们定义 $dp_{s,t}$ 表示路程为 $t$ 且在 $s$ 点结束的序列个数，答案即为 $dp_{1,T}$ 。显然 $dp_{s,t}$ 可以由 $dp_{v,u}$ 递推而来（ $u&lt;t$ ） ，所以我们可以以 $u$ 递增的顺序递推 $dp$ 。更严谨的讲，$dp$ 可以被以下方式计算：</p>
+<script type="math/tex; mode=display">\boxed{dp_{s,t}=\sum_{1\le i\le m,b_i=s}\left(\sum_{0\le u<t}dp_{a_i,u} \times p_{i,t-u}\right) +\sum_{1\le i\le m,a_i=s}\left(\sum_{0\le u<t}dp_{b_i,u}\times p_{i,t-u}\right)}</script><p>这个算法的时间复杂度是 $\mathcal{O}(mT^2)$ （稍后解释），加上它巨大的常数，不足以通过本题。尝试消除 $T^2$ 的计算是本题算法的关键。</p>
+<p>接下来的讨论中，我们均假设 $n=2$ 以简化问题 ，因为 $n\ge 3$ 的情况是基本类似的，除了 $\mathcal{O}(m)$ 会有变化。设 $p_u$ 表示连接 $1,2$ 的长度为 $u$ 的边数，则DP转移可以表示为：</p>
+<script type="math/tex; mode=display">\boxed{d_{1,t}=\sum_{0\le u<t}d_{2,u}\times p_{t-u};dp_{2,t}=\sum_{0\le u<t}d_{1,u}\times p_{t-u}}</script><p>观察到这个式子很像卷积。但如果直接用FFT进行计算，我们会发现 $d_1$ 和 $d_2$ 之间有相互依赖的关系，导致我们无法计算。类似这题的题目中，一些DP值依赖于其他的DP值，这种DP被称为在线DP。一般来说，解决这类问题的唯一方法是在DAG上用拓扑序朴素求解。而如果我们用这种方法求解上面的式子，会花费 $\mathcal{O}(T^2)$ 的时间。这样我们似乎走到死胡同里了，但事实上，只要在线DP有良好的性质，我们可以优化朴素算法到达更好的时间复杂度。在本题中，我们可以利用贡献可以以卷积的形式展这样良好的性质。为了实现在线卷积，我们需要分治和卷积的结合——分治FFT。</p>
+<p>接下来进入正题了，对于分治FFT的讲解（它也被称为cdq分治FFT，在线FFT，在线卷积等等 ）。首先我们先想象一下对于 $[l,r)$ 计算 DP数组的过程，其中最左边的圆相当于 $dp_{v,l}$ ，最右边的相当于 $dp_{v,r-1}$。（图片来自AtCoder）</p>
+<p><img src="https://img.atcoder.jp/ghi/0bece76ac097ab765a3a47bb7ac8121c.png" alt="DP转移"></p>
+<p>注意到上面的图是把无向图的完全图的边换成有向边后得到的，所以朴素DP时间复杂度为 $\mathcal{O}(T^2)$ 。而分治FFT就是一种一步步计算上述转移过程的算法。类似cdq分治的思路，它分为三步：首先计算 $[l,m)$ ，然后计算 $[l,m)$ 对 $[m,r)$ 的贡献，最后计算 $[m,r)$ 。其中 $m=\left\lfloor\dfrac{l+r}{2}\right\rfloor$ ，而且保证在计算 $[l,r)$ 时，$[0,l)$ 的值已经确定，$[0,l)$ 对 $[l,r)$ 的贡献已经被计算在DP数组上了。接下来具体描述一下。</p>
+<p>1.递归计算 $[l,m)$ 的值（图片来自AtCoder）。</p>
+<p><img src="https://img.atcoder.jp/ghi/a5bf1fb11f7625ac9f4f55c2ed613799.png" alt="计算左半边"></p>
+<p>首先，我们递归计算 $[l,m)$ 。注意到根据上面的条件，$[l,r)$ 外部的贡献已经被加上了，所以我们可以直接计算 $[l,m)$ 而无需任何讨论。</p>
+<p>2.计算 $[l,m)$ 对 $[m,r)$ 的贡献（图片来自AtCoder）</p>
+<p><img src="https://img.atcoder.jp/ghi/33c3cad73feb06d6fb61a55d6f4755ee.png" alt="计算贡献"></p>
+<p>接着，计算 $[l,m)$ 对 $[m,r)$ 的贡献。当 $n=2$ 时，符合描述的贡献计算是这样的：</p>
+<script type="math/tex; mode=display">\boxed{dp_{1,t}=dp_{1,t}+\sum_{l\le u<m}dp_{2,u}\times p_{t-u};dp_{2,t}=dp_{2,t}+\sum_{l\le u<m}dp_{1,u}\times p_{t-u}}</script><p>之前我们说这个转移不能用FFT实现是因为 $dp_{1,u},dp_{2,u}$ 还没有被确定。但这次，我们已经分治算出了 $[l,m)$ 所以我们就可以用卷积来实现 $\sum$ 的计算。这样，这一个部分可以以 $\mathcal{O}(B\log B)$ 计算，其中 $B=r-l$ 。</p>
+<p>3.递归计算 $[m,r)$ 的值。（图片来自AtCoder）</p>
+<p><img src="https://img.atcoder.jp/ghi/07b11ffb55d27dd226016ce99cd12f22.png" alt="计算右边"></p>
+<p>左边的都已经全部计算完毕，最终我们只需要递归计算 $[m,r)$ 即可。</p>
+<p>接下来考虑分析一下该算法的复杂度，设 $T(B)$ 表示用分治算法计算长度为 $B$ 的序列时的时间复杂度，则有 $T(B)=2T\left(\dfrac{B}{2}\right)+\mathcal{O}(B\log B)$ 。严谨的计算含有递归关系的复杂度是很难的，所以我们以一种简单的方式来解释。我们令  $b=\log B,U(b)=\dfrac{T(2^b)}{2^b}=\dfrac{T(B)}{B}$ ，原式两边同时除以 $B$ 得到：$U(b)=U(b-1)+\mathcal{O}(b)$ ，这样可以证明 $U(b)=\mathcal{O}(b^2)=\mathcal{O}(\log^2 b)$ 。这样，$T(B)=B\times U(b)=\mathcal{O}(B\log^2 B)$ 。所以算法总复杂度为 $\mathcal{O}(mT\log^2T)$ 。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure>
+<h2 id="经验知识总结"><a href="#经验知识总结" class="headerlink" title="经验知识总结"></a>经验知识总结</h2><ol>
+<li>$a\operatorname{xor}b=c\leftrightarrow a\operatorname{xor}c=b$</li>
+<li>对于权值均为 $0/1$ 的最短路，使用一般的算法会浪费资源，可以用01-BFS来$\mathcal{O}(V+E)$ 的解决。具体来讲，使用双端队列，对于边权为 $0$ 的边转移到的点 $v$，执行 <code>q.push_front(v)</code> ；对于边权为 $1$ 的边转移到的 $v$ ，执行<code>q.push_back(v)</code> 。每次取出队首，尝试松弛并加入队列，直到访问到第一次目标点 $(x,y)$ ，输出 <code>dis[x][y]</code> 即可。</li>
+<li>可以用栈 $\mathcal{O}(n)$ 维护以下操作：共 $n$ 次操作，每次操作对于集合内所有元素与 $a$ 取 $\min$ ，然后将 $a$ 加入集合中，最后询问集合内的元素和。注意到 $a$ 每次加入时一定大于等于原集合的最大值，可以 $\mathcal{O}(1)$ 维护原栈有序。其他操作就跟单调队列或者有序可重集类似了。</li>
+<li>当原问题不好求时，可以转化为若干个子问题，再用容斥等方式合到一起。</li>
+<li>对于存在依赖的在线DP，如果它有卷积的形式，则可以利用分治FFT消除依赖，在 $\mathcal{O}(B\log^2B)$ 的时间复杂度内求解（其中 $B$ 表示求解DP数组的长度）。</li>
+</ol>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Atcoder/" rel="tag"># Atcoder</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2022/01/24/CODE%20FESTIVAL%202016%20qual%20C%E8%A1%A5%E9%A2%98%E6%80%BB%E7%BB%93/" rel="prev" title="CODE FESTIVAL 2016 qual C">
+      <i class="fa fa-chevron-left"></i> CODE FESTIVAL 2016 qual C
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2022/01/24/CODE%20FESTIVAL%202016%20qual%20A%E8%A1%A5%E9%A2%98%E6%80%BB%E7%BB%93/" rel="next" title="CODE FESTIVAL 2016 qual A">
+      CODE FESTIVAL 2016 qual A <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Atcoder-Beginner-Contest-213"><span class="nav-number">1.</span> <span class="nav-text">Atcoder Beginner Contest 213</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#A-Bitwise-Exclusive-Or"><span class="nav-number">1.1.</span> <span class="nav-text">A - Bitwise Exclusive Or</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#B-Booby-Prize"><span class="nav-number">1.2.</span> <span class="nav-text">B - Booby Prize</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#C-Reorder-Cards"><span class="nav-number">1.3.</span> <span class="nav-text">C - Reorder Cards</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#D-Takahashi-Tour"><span class="nav-number">1.4.</span> <span class="nav-text">D - Takahashi Tour</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#E-Stronger-Takahashi"><span class="nav-number">1.5.</span> <span class="nav-text">E - Stronger Takahashi</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#F-Common-Prefixes"><span class="nav-number">1.6.</span> <span class="nav-text">F - Common Prefixes</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#G-Connectivity-2"><span class="nav-number">1.7.</span> <span class="nav-text">G - Connectivity 2</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#H-Stroll"><span class="nav-number">1.8.</span> <span class="nav-text">H - Stroll</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BB%8F%E9%AA%8C%E7%9F%A5%E8%AF%86%E6%80%BB%E7%BB%93"><span class="nav-number">2.</span> <span class="nav-text">经验知识总结</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">zhiyangfan</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">23</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-name">标签</span>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">zhiyangfan</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> 强力驱动
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+      
+
+<script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      loader: {
+        source: {
+          '[tex]/amsCd': '[tex]/amscd',
+          '[tex]/AMScd': '[tex]/amscd'
+        }
+      },
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              let target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    (function () {
+      var script = document.createElement('script');
+      script.src = '//cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js';
+      script.defer = true;
+      document.head.appendChild(script);
+    })();
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+    
+
+  
+
+</body>
+</html>

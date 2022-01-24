@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 6.0.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"zhiyangfan1234.github.io","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="CODE FESTIVAL 2016 Final补题总结你问我 AGC004,005,007 的总结去哪了？在写了在写了，只不过感觉这一场太妙了，所以就拉到了最先置顶的工作量（ 题目A - Where’s Snuke?给出一个 $h\times w$ 的表格，每个格子里面有 snake 或 snuke。请找出唯一一个 snuke 的位置，行数 $1$ 到 $h$ 编号，列 A 到英文第 $w$ 个">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CODE FESTIVAL 2016 Final">
+<meta property="og:url" content="https://zhiyangfan1234.github.io/2022/01/24/CODE%20FESTIVAL%202016%20Final%E8%A1%A5%E9%A2%98%E6%80%BB%E7%BB%93/index.html">
+<meta property="og:site_name" content="zhiyangfan 的博客小窝">
+<meta property="og:description" content="CODE FESTIVAL 2016 Final补题总结你问我 AGC004,005,007 的总结去哪了？在写了在写了，只不过感觉这一场太妙了，所以就拉到了最先置顶的工作量（ 题目A - Where’s Snuke?给出一个 $h\times w$ 的表格，每个格子里面有 snake 或 snuke。请找出唯一一个 snuke 的位置，行数 $1$ 到 $h$ 编号，列 A 到英文第 $w$ 个">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://cdn.luogu.com.cn/upload/image_hosting/a1nq0ezm.png">
+<meta property="og:image" content="https://cdn.luogu.com.cn/upload/image_hosting/un7xwzm2.png">
+<meta property="og:image" content="https://cdn.luogu.com.cn/upload/image_hosting/goikki83.png">
+<meta property="og:image" content="https://cdn.luogu.com.cn/upload/image_hosting/dzv5atza.png">
+<meta property="og:image" content="https://cdn.luogu.com.cn/upload/image_hosting/rjalsv1b.png">
+<meta property="og:image" content="https://cdn.luogu.com.cn/upload/image_hosting/i8qfojx4.png">
+<meta property="article:published_time" content="2022-01-24T09:00:23.000Z">
+<meta property="article:modified_time" content="2022-01-24T09:12:44.046Z">
+<meta property="article:author" content="zhiyangfan">
+<meta property="article:tag" content="AGC">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.luogu.com.cn/upload/image_hosting/a1nq0ezm.png">
+
+<link rel="canonical" href="https://zhiyangfan1234.github.io/2022/01/24/CODE%20FESTIVAL%202016%20Final%E8%A1%A5%E9%A2%98%E6%80%BB%E7%BB%93/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>CODE FESTIVAL 2016 Final | zhiyangfan 的博客小窝</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">zhiyangfan 的博客小窝</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://zhiyangfan1234.github.io/2022/01/24/CODE%20FESTIVAL%202016%20Final%E8%A1%A5%E9%A2%98%E6%80%BB%E7%BB%93/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="zhiyangfan">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="zhiyangfan 的博客小窝">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          CODE FESTIVAL 2016 Final
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2022-01-24 17:00:23 / 修改时间：17:12:44" itemprop="dateCreated datePublished" datetime="2022-01-24T17:00:23+08:00">2022-01-24</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h2 id="CODE-FESTIVAL-2016-Final补题总结"><a href="#CODE-FESTIVAL-2016-Final补题总结" class="headerlink" title="CODE FESTIVAL 2016 Final补题总结"></a>CODE FESTIVAL 2016 Final补题总结</h2><p>你问我 AGC004,005,007 的总结去哪了？在写了在写了，只不过感觉这一场太妙了，所以就拉到了最先置顶的工作量（</p>
+<h3 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h3><h4 id="A-Where’s-Snuke"><a href="#A-Where’s-Snuke" class="headerlink" title="A - Where’s Snuke?"></a>A - Where’s Snuke?</h4><p>给出一个 $h\times w$ 的表格，每个格子里面有 <code>snake</code> 或 <code>snuke</code>。请找出唯一一个 <code>snuke</code> 的位置，行数 $1$ 到 $h$ 编号，列 <code>A</code> 到英文第 $w$ 个小写字母编号。($1\le h,w\le26$)</p>
+<p><del>过水已隐藏</del>  </p>
+<p>CCF学学人家的签到题。<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="function">std::string <span class="title">str</span><span class="params">(<span class="string">&quot;snuke&quot;</span>)</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> h, w; <span class="built_in">scanf</span>(<span class="string">&quot;%d%d&quot;</span>, &amp;h, &amp;w); std::string s;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= h; ++i)</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">1</span>; j &lt;= w; ++j)</span><br><span class="line">        &#123;</span><br><span class="line">            std::cin &gt;&gt; s;</span><br><span class="line">            <span class="keyword">if</span> (s == str) <span class="built_in">printf</span>(<span class="string">&quot;%c%d\n&quot;</span>, <span class="string">&#x27;A&#x27;</span> + j - <span class="number">1</span>, i);</span><br><span class="line">        &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h4 id="B-Exactly-N-points"><a href="#B-Exactly-N-points" class="headerlink" title="B - Exactly N points"></a>B - Exactly N points</h4><p>共有 $n$ 个物品，其中第 $i$ 个物品的权值是 $i$。现在想取出一些物品使得它们的权值和恰好是 $n$ 且最小化选取物品中权值的最大值，求出一种可能的方案。($1\le n\le10^7$)</p>
+<p>首先考虑最最最简单的 $1\le n\le1000$ 的情况，显然可以直接背包 $\rm dp$ 然后随便记录一下路径，时间复杂度 $\mathcal{O}(n^2)$。接下来考虑沿着这个算法的思路继续思考。注意到物品的权值是比较特殊的，简单手玩一下就能发现，前 $i$ 个物品能组成的权值是 $1\sim \dfrac{i(i+1)}{2}$，因为要最小化最大权值，所以我们肯定要尽量用靠前的物品。所以我们可以列出：</p>
+<script type="math/tex; mode=display">\dfrac{x(x+1)}{2}=n</script><p>解得 $x=\left\lceil\dfrac{-1+\sqrt{1+8n}}{2}\right\rceil$。我们只需要用前 $x$ 个物品就能满足条件了，构造方案可以直接尽量用权值较大的物品去减，最终时间复杂度 $\mathcal{O}(\sqrt{n})$。<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cmath&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> n; <span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>, &amp;n);</span><br><span class="line">    <span class="keyword">int</span> pos = <span class="built_in">ceil</span>((<span class="number">-1</span> + <span class="built_in">sqrt</span>(<span class="number">1</span> + <span class="number">8</span> * n)) / <span class="number">2</span>);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%d\n&quot;</span>, pos); n -= pos;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = pos - <span class="number">1</span>; i &gt;= <span class="number">1</span> &amp;&amp; n; --i)</span><br><span class="line">        <span class="keyword">if</span> (n &gt;= i) <span class="built_in">printf</span>(<span class="string">&quot;%d\n&quot;</span>, i), n -= i;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h4 id="C-Interpretation"><a href="#C-Interpretation" class="headerlink" title="C - Interpretation"></a>C - Interpretation</h4><p>在一个星球上有 $m$ 种语言，现在有 $n$ 个人，每个人会说 $k_i$ 种语言 $l_{i,1},l_{i,2},\cdot\cdot\cdot,l_{i,{k_i}}$。两个人能交流当且仅当以下条件满足：</p>
+<ul>
+<li>存在一种两个人都会讲的语言。</li>
+<li>存在一个两个人都能与他交流的人。</li>
+</ul>
+<p>问这 $n$ 个人能否相互交流。($2\le n\le10^5,1\le k_i\le m\le10^5,\sum k_i\le 10^5,\forall i\ne j$，都有 $l_{g,i}\ne l_{g,j}$)</p>
+<p><del>很容易</del> 想到图论模型，把人向他所有会说的语言连边，最后看看所有点在不在同一个连通块中。会说同一种语言的人连通是显然的，而由于这种连通性可以传递，所以通过共同都能交流的人连通也是显然的。最终时间复杂度为 $\mathcal{O}(n\alpha(n))$。<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N = <span class="number">2e5</span> + <span class="number">10</span>; <span class="keyword">int</span> f[N]; <span class="keyword">char</span> res[<span class="number">2</span>][<span class="number">5</span>] = &#123;<span class="string">&quot;NO&quot;</span>, <span class="string">&quot;YES&quot;</span>&#125;;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">getf</span><span class="params">(<span class="keyword">int</span> x)</span> </span>&#123; <span class="keyword">return</span> x == f[x] ? x : f[x] = <span class="built_in">getf</span>(f[x]); &#125;</span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">merge</span><span class="params">(<span class="keyword">int</span> u, <span class="keyword">int</span> v)</span> </span>&#123; <span class="keyword">int</span> t1 = <span class="built_in">getf</span>(u), t2 = <span class="built_in">getf</span>(v); f[t1] = t2; &#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> n, m; <span class="built_in">scanf</span>(<span class="string">&quot;%d%d&quot;</span>, &amp;n, &amp;m);</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n + m; ++i) f[i] = i;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>, k, l; i &lt;= n; ++i)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>, &amp;k);</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">1</span>; j &lt;= k; ++j)</span><br><span class="line">            <span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>, &amp;l), <span class="built_in">merge</span>(i, l + n);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">int</span> flag = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n &amp;&amp; flag; ++i)</span><br><span class="line">        <span class="keyword">if</span> (<span class="built_in">getf</span>(i) != <span class="built_in">getf</span>(<span class="number">1</span>)) flag = <span class="number">0</span>;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%s\n&quot;</span>, res[flag]); <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h4 id="D-Pair-Cards"><a href="#D-Pair-Cards" class="headerlink" title="D - Pair Cards"></a>D - Pair Cards</h4><p>一共有 $n$ 张卡片，第 $i$ 张卡片上面写着 $x_i$。给出一个数 $m$，则两张卡片能配对当且仅当以下条件至少满足一个：</p>
+<ul>
+<li>两张卡片上面写的数相同。</li>
+<li>两张卡片上面写的数之和为 $m$ 的倍数。</li>
+</ul>
+<p>求出最多能配多少对，注意一张卡片最多在一对中。($2\le n\le10^5,1\le m,x_i\le10^5$)</p>
+<p>可以想到一个配对的思路是先配出所有两张卡片之和为 $m$ 的倍数（尽量不拆开相同的卡片）最后再合并一下两张卡片上面的数相同的对数。考虑为什么这样是对的，当不得不拆开相同的卡片时，这两张卡片如果只是自己之间配对，最多只能得到一对，但如果选择拿其中一个跟别人配对，另一个也有可能能跟另一个配对，最多可以得到两对，且至少一对。总之不亏，且有可能赚。题目中的倍数可以想到同余处理，开个桶记录一下 $m$ 的完全剩余系中每个值对应了多少张卡片，然后一一匹配即可。注意特判一下 $0$ 和 $\frac{m}{2}$ 的情况，因为它们是跟自己匹配的。为了匹配剩下的相同卡片，我们再记录一下每个余数对应着多少对相同的卡片，最后跟剩下多少张取个 $\min$ 即可（这样就可以做到尽量不拆开相同的卡片了）。时间复杂度 $\mathcal{O}(n+m)$。<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N = <span class="number">1e5</span> + <span class="number">10</span>; <span class="keyword">int</span> b[N], c[N], s[N];</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> n, m, ans = <span class="number">0</span>; <span class="built_in">scanf</span>(<span class="string">&quot;%d%d&quot;</span>, &amp;n, &amp;m);</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>, a; i &lt;= n; ++i) <span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>, &amp;a), ++c[a], ++b[a % m];</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; N; ++i) s[i % m] += c[i] &gt;&gt; <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>, d; i &lt; m - i; ++i)</span><br><span class="line">    &#123;</span><br><span class="line">        d = std::<span class="built_in">min</span>(b[i], b[m - i]);</span><br><span class="line">        ans += d; b[i] -= d; b[m - i] -= d;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (!(m &amp; <span class="number">1</span>)) ans += (b[m &gt;&gt; <span class="number">1</span>] &gt;&gt; <span class="number">1</span>), b[m &gt;&gt; <span class="number">1</span>] &amp;= <span class="number">1</span>;</span><br><span class="line">    ans += (b[<span class="number">0</span>] &gt;&gt; <span class="number">1</span>), b[<span class="number">0</span>] &amp;= <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; m; ++i) ans += std::<span class="built_in">min</span>(s[i], b[i] &gt;&gt; <span class="number">1</span>);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%d\n&quot;</span>, ans); <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125; </span><br></pre></td></tr></table></figure></p>
+<h4 id="E-Cookies"><a href="#E-Cookies" class="headerlink" title="E - Cookies"></a>E - Cookies</h4><p>初始时做曲奇的速度为每秒 $1$ 个。可以任意次选择在任意时刻花 $a$ 秒吃掉当前做出的所有曲奇，如果吃掉了 $x$ 个曲奇，则做曲奇的速度变为每秒 $x$ 个。问做 $n$ 个曲奇至少需要多少秒，注意一秒不能拆开来算。($1\le n\le10^{12},0\le a\le10^{12}$)</p>
+<p>在考虑正解之前，让我们先来看看 $1\le n\le 10^6$ 的部分分。我们设 $f_i$ 表示做出 <strong>恰好</strong> $n$ 个曲奇的最小时间，我们从 $1$ 到 $n-1$ 枚举最后一轮的速度，如果当前的速度为 $i$，则显然有转移</p>
+<script type="math/tex; mode=display">f_j=\min(f_j,f_i+a+\dfrac{j}{i})(i\le j\le 2n,i|j)</script><p>而最后答案也不一定是 $f_n$，而是 $\min_{i=n}^{2n}\{f_i\}$。最终时间复杂度 $\mathcal{O}(n\log n)$，其中 $\log n$ 为枚举倍数调和级数级别的复杂度。</p>
+<p>而 $1\le n\le10^{12}$ 的正解显然不能再用 $\rm dp$ 了，考虑数学推导。如果我们令曲奇数量为 $y$ 轴，时间为 $x$ 轴，则原题的过程可以转化为以下函数图像：</p>
+<p><img src="https://cdn.luogu.com.cn/upload/image_hosting/a1nq0ezm.png" alt=""></p>
+<p>其中第一段直线的斜率为 $1$。则有 $c_1=t_1$，所以如果一共分为 $k$ 段，则做出的曲奇数应该为 $\prod_{i=1}^k t_i$ 块，用掉的时间为 $\sum_{i=1}^k t_i+a(k-1)$ 秒。所以问题就转化为了：</p>
+<blockquote>
+<p>已知 $\prod_{i=1}^k t_i\ge n$，最小化 $\sum_{i=1}^k t_i+a(k-1)$ 的值。</p>
+</blockquote>
+<p>注意到这个 $k$ 是 $\mathcal{O}(\log n)$ 级别的，显然我们可以直接枚举这个 $k$。$k$ 确定之后 $a(k-1)$ 也就变成常数了，而剩下来的形式就很像基本不等式了。考虑这个问题：</p>
+<blockquote>
+<p>已知 $\prod_{i=1}^k t_i=n$，最小化 $\sum_{i=1}^k t_i$ 的值。</p>
+</blockquote>
+<p>根据基本不等式，显然 $\sum_{i=1}^k t_i\ge k\sqrt[k]{\prod_{i=1}^k t_i}=k\sqrt[k]{n}$，等号成立当且仅当 $t_1=t_2=\cdot\cdot\cdot=t_k$，可以直接 $\mathcal{O}(1)$ 计算。但是原问题不是 $=$ 而是 $\ge$。不过区别并不大，注意到这个 $\ge$ 产生的原因其实是 $t_i$ 限定为整数，所以我们还是尽量让所有值相等，只不过让允许一些位置大 $1$ 使得恰好 $\ge n$，这样可以保证既 $\ge n$ 也尽量贴近基本不等式等号成立的条件。对于所有可能的 $k$，分别 $\mathcal{O}(1)$ 计算然后 $\min$ 即可，时间复杂度 $\mathcal{O}(\log n)$。<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cmath&gt;</span></span></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">double</span> eps = <span class="number">1e-8</span>;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">long</span> <span class="keyword">long</span> n, a, p, ans; <span class="built_in">scanf</span>(<span class="string">&quot;%lld%lld&quot;</span>, &amp;n, &amp;a); ans = n;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> k = <span class="number">2</span>, d; k &lt;= <span class="number">100</span>; ++k)</span><br><span class="line">    &#123;</span><br><span class="line">        p = <span class="built_in">pow</span>(n, <span class="number">1.0</span> / k) + eps; d = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span> (<span class="built_in">pow</span>(p, k - d) * <span class="built_in">pow</span>(p + <span class="number">1</span>, d) &lt; n) ++d;  </span><br><span class="line">        ans = std::<span class="built_in">min</span>(ans, a * (k - <span class="number">1</span>) + (k - d) * p + d * (p + <span class="number">1</span>));</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%lld\n&quot;</span>, ans); <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h4 id="F-Road-of-the-King"><a href="#F-Road-of-the-King" class="headerlink" title="F - Road of the King"></a>F - Road of the King</h4><p>给出一张 $n$ 个点的有向图，定义一个序列 $c$ 是合法的当且仅当以下条件均满足：</p>
+<ul>
+<li>$c$ 的长度为 $m$。</li>
+<li>$\forall 1\le i\le m$，都有 $1\le c_i\le n$。</li>
+<li>如果在原图中加入 $m$ 条有向边 $c_{i-1}\rightarrow c_i(1\le i\le m)$，定义 $c_0=1$，则原图强联通。</li>
+</ul>
+<p>求有多少种合法的序列，答案对 $10^9+7$ 取模。($2\le n\le300,1\le m\le300$)</p>
+<p>考虑一个序列能构造出强联通的充要条件：</p>
+<ol>
+<li>这个序列包含所有的点。</li>
+<li>点 $1$ 能从点 $c_m$ 到达。</li>
+</ol>
+<p>必要性显然，考虑如何证明充分性。对于条件 1，我们可以发现所有的点都能从 $1$ 到达，这样借 $1$ 为跳板，从所有都能到达 $c_m$。而根据条件 2，$c_m$ 能到达所有点，这样所有点就可以相互到达了，也就是原图强联通。</p>
+<p>考虑 $\rm dp$，我们设 $f_{i,j,k}$ 表示当前序列长 $i$，已经用了 $j$ 个点，当前「强联通的状态」为 $k$ 的方案数。每次转移考虑把一个点加入序列中，这样就基本就可以描述所有需要的信息了，但问题是，「强联通的状态」到底该用什么表示呢？注意到如果我们加入的点是 $1$，则会产生一个强连通分量，如果我们加入的点能到达 $1$，则也会产生一个强联通分量，否则什么都不会改变。所以我们应该维护的是 <strong>包含 $1$ 的强联通分量大小</strong>。</p>
+<p>接下来的 $\rm dp$ 转移就简单了，考虑三种情况：</p>
+<ol>
+<li>加入一个没有在当前序列中出现过的点：$f_{i,j,k}=f_{i,j,k}+f_{i-1,j-1,k}\times (n-j+1)$</li>
+<li>加入一个不在包含 $1$ 的强联通分量中的点：$f_{i,j,k}=f_{i,j,k}+f_{i-1,j,k}\times(j-k)$</li>
+<li>加入一个在包含 $1$ 的强联通分量中的点：$f_{i,j,j}=f_{i,j,j}+f_{i-1,j,k}\times k$</li>
+</ol>
+<p>初始值为 $f_{0,1,1}$，最终答案即为 $f_{m,n,n}$，$\mathcal{O}(n^2m)$ 转移即可。<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N = <span class="number">310</span>, mod = <span class="number">1e9</span> + <span class="number">7</span>; <span class="keyword">int</span> f[N][N][N];</span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">mo</span><span class="params">(<span class="keyword">int</span>&amp; x)</span> </span>&#123; x &gt;= mod ? x -= mod : <span class="number">0</span>; &#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> n, m; <span class="built_in">scanf</span>(<span class="string">&quot;%d%d&quot;</span>, &amp;n, &amp;m); f[<span class="number">0</span>][<span class="number">1</span>][<span class="number">1</span>] = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= m; ++i)</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">1</span>; j &lt;= n; ++j)</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> k = <span class="number">1</span>; k &lt;= n; ++k)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="built_in">mo</span>(f[i][j][k] += (<span class="keyword">int</span>)(<span class="number">1ll</span> * f[i - <span class="number">1</span>][j - <span class="number">1</span>][k] * (n - j + <span class="number">1</span>) % mod));</span><br><span class="line">                <span class="built_in">mo</span>(f[i][j][k] += (<span class="keyword">int</span>)(<span class="number">1ll</span> * f[i - <span class="number">1</span>][j][k] * (j - k) % mod));</span><br><span class="line">                <span class="built_in">mo</span>(f[i][j][j] += (<span class="keyword">int</span>)(<span class="number">1ll</span> * f[i - <span class="number">1</span>][j][k] * k % mod));</span><br><span class="line">            &#125;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%d\n&quot;</span>, f[m][n][n]); <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h4 id="G-Zigzag-MST"><a href="#G-Zigzag-MST" class="headerlink" title="G - Zigzag MST"></a>G - Zigzag MST</h4><p>给出一个 $n$ 个点的无向图，点从 $0$ 到 $n-1$ 编号。给出 $q$ 组询问来加边，每次询问有 $A_i,B_i,C_i$ 三个参数，然后会加入形如 $(A_i,B_i,C_i),(B_i,A_i+1,C_i+1),(A_i+1,B_i+1,C_i+2),(B_i+1,A_i+2,C_i+3),(A_i+2,B_i+2,C_i+4)\cdot\cdot\cdot$ 的无限条无向边，这里的加法是在模 $n$ 意义下的。求出 $q$ 组询问后图的最小生成树边权和。($2\le n\le2\times10^6,1\le q\le2\times10^6,1\le C_i\le10^9$)</p>
+<p>这题需要画很多图。首先我们来画一下按照题目描述，一组询问 $A,B,C$ 会加入的边（后面的省略）：</p>
+<p><img src="https://cdn.luogu.com.cn/upload/image_hosting/un7xwzm2.png" alt=""></p>
+<p>而注意到，如果 $(A+1,B,C+1)$ 这条边被加入的话，$(A,B,C)$ 也一定被考虑过了，不管加上没有，$A,B$ 一定是连通的，所以我们可以把 $(A+1,B,C+1)$ 改为 $(A+1,A,C+1)$ 而不影响结果，即：</p>
+<p><img src="https://cdn.luogu.com.cn/upload/image_hosting/goikki83.png" alt=""></p>
+<p>类似地，考虑 $(A+1,B+1,C+2)$ 时，$A+1,A,B$ 一定连通了，所以可以把 $(A+1,B+1,C+2)$ 改为 $(B,B+1,C+2)$，即：</p>
+<p><img src="https://cdn.luogu.com.cn/upload/image_hosting/dzv5atza.png" alt=""></p>
+<p>一直这么改下去，我们会得到这样一张图：</p>
+<p><img src="https://cdn.luogu.com.cn/upload/image_hosting/rjalsv1b.png" alt=""></p>
+<p>注意到这张图的特点是：$A,B$ 之间有一条权值为 $C$ 的边，$A+i,A+i+1$ 之间有一条权值为 $C+1+2i$ 的边，$B+i,B+i+1$ 之间有一条权值为 $C+2+2i$ 的边。方便起见，我们下文把 $A,B$ 之间的边叫做红边，剩下的边叫做绿边。则加入所有的询问之后，原图应该长这样：</p>
+<p><img src="https://cdn.luogu.com.cn/upload/image_hosting/i8qfojx4.png" alt=""></p>
+<p>其中加粗的绿边表示有无限条边。当然，因为是最小生成树，其实每两个点之间只有一条边是有用的，也就是权值最小的那条。所以我们接下来的任务就变为了找到两点之间边权值的最小值。</p>
+<p>发现绿边其实都是由一个点 $S$ 出发，以 $x$ 为初始权值，每连接一组点给权值加 $2$ 得到的，形式化讲，$S+i,S+i+1$ 之间的权值为 $x+2i$。根据这个性质，我们可以考虑递推计算。我们设 $c_i$ 表示连接 $i$ 和 $i+1$ 的边中的最小权值，初始时均为无穷大。对于每组 $(S,x)$，我们更新一下 $c_S=\min(c_S,x)$。接着考虑连下去的边，则有 $c_{i+1}=\min(c_{i+1},c_{i}+2)(0\le i<n)$，这里的加法依然是模 $n$ 意义下。注意贡献是一个环，所以这个玩意要更新两遍。最终我们得到了 $n+q$ 条边，直接用 $\rm kruskal$ 跑最短路即可，时间复杂度 $\mathcal{O}((n+q)\log (n+q))$。
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N = <span class="number">2e5</span> + <span class="number">10</span>; <span class="keyword">int</span> cst[N], f[N], tp, tot;</span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">edge</span></span></span><br><span class="line"><span class="class">&#123;</span> </span><br><span class="line">    <span class="keyword">int</span> u, v, w; </span><br><span class="line">    <span class="built_in">edge</span>(<span class="keyword">int</span> u = <span class="number">0</span>, <span class="keyword">int</span> v = <span class="number">0</span>, <span class="keyword">int</span> w = <span class="number">0</span>) : <span class="built_in">u</span>(u), <span class="built_in">v</span>(v), <span class="built_in">w</span>(w) &#123; &#125;</span><br><span class="line">&#125;E[N &lt;&lt; <span class="number">1</span>]; <span class="keyword">long</span> <span class="keyword">long</span> ans;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">getf</span><span class="params">(<span class="keyword">int</span> x)</span> </span>&#123; <span class="keyword">return</span> x == f[x] ? x : f[x] = <span class="built_in">getf</span>(f[x]); &#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">memset</span>(cst, <span class="number">0x7f</span>, <span class="built_in"><span class="keyword">sizeof</span></span> (cst)); <span class="keyword">int</span> n, q; <span class="built_in">scanf</span>(<span class="string">&quot;%d%d&quot;</span>, &amp;n, &amp;q); </span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>, A, B, C; i &lt;= q; ++i) </span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">&quot;%d%d%d&quot;</span>, &amp;A, &amp;B, &amp;C); E[++tp] = <span class="built_in">edge</span>(A, B, C);</span><br><span class="line">        cst[A] = std::<span class="built_in">min</span>(cst[A], C + <span class="number">1</span>); cst[B] = std::<span class="built_in">min</span>(cst[B], C + <span class="number">2</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; ++i) cst[(i + <span class="number">1</span>) % n] = std::<span class="built_in">min</span>(cst[(i + <span class="number">1</span>) % n], cst[i] + <span class="number">2</span>);</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; ++i) cst[(i + <span class="number">1</span>) % n] = std::<span class="built_in">min</span>(cst[(i + <span class="number">1</span>) % n], cst[i] + <span class="number">2</span>);</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; ++i) E[++tp] = <span class="built_in">edge</span>(i, (i + <span class="number">1</span>) % n, cst[i]), f[i] = i;</span><br><span class="line">    std::<span class="built_in">sort</span>(E + <span class="number">1</span>, E + tp + <span class="number">1</span>, [&amp;](<span class="keyword">const</span> edge&amp; e1, <span class="keyword">const</span> edge&amp; e2) &#123; <span class="keyword">return</span> e1.w &lt; e2.w; &#125;);</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>, tx, ty; i &lt;= tp; ++i)</span><br><span class="line">    &#123;</span><br><span class="line">        tx = <span class="built_in">getf</span>(E[i].u), ty = <span class="built_in">getf</span>(E[i].v);</span><br><span class="line">        <span class="keyword">if</span> (tx != ty) ans += E[i].w, f[tx] = ty, ++tot;</span><br><span class="line">        <span class="keyword">if</span> (tot == n - <span class="number">1</span>) <span class="keyword">break</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%lld\n&quot;</span>, ans); <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h4 id="H-Tokaido"><a href="#H-Tokaido" class="headerlink" title="H - Tokaido"></a>H - Tokaido</h4><p>有 $n$ 个方格从左到右编号为 $1\sim n$ 排成一列，初始时每一格上面有一个整数 $a_i$，Snuke 和 Rng 在按照以下的规则玩游戏：</p>
+<ol>
+<li>两个人各执一枚棋子，Snuke 放在一号方格，Rng 放在二号方格。</li>
+<li>棋子在另一个人左边的人移动，移动的目的地必须是它当前位置的右边且不为对手的位置。</li>
+<li>重复执行2.步骤直到无法行动。</li>
+<li>每个人的得分是他的棋子经过的格子上面的整数之和。</li>
+</ol>
+<p>假设两个人都是足够聪明的，他们都想最大化自己比别人分数高的值。现在 $a_1\sim a_{n-1}$ 已经确定了，给出 $m$ 组询问 $x_i$，每组询问表示如果 $a_n=x_i$，则求出 Snuke 的分数 - Rng 的分数会是多少。($3\le n\le2\times10^5,0\le a_i\le10^6,\sum a_i\le10^6,1\le m\le2\times10^5,0\le x_i\le10^9$)</p>
+<p>既然是博弈论，那么我们可以先考虑两个人怎么移动是最优的。注意到如果当前格子右边相邻的格子是空着的，则最优步数是棋子走到那里。原因显然，因为格子的权值非负，所以这样走不会损失分数，也不会损失自己的轮次。所以游戏的步骤（计分系统不变）如果改成这样是相同的：</p>
+<ul>
+<li>每次移动完棋子，玩家要把对手的棋子一格一格移动到他棋子的左边。</li>
+<li>每次移动完后两个棋子是相邻的。</li>
+</ul>
+<p>接下来首先考虑 $m=1$ 的部分分。考虑 $\rm dp$，我们设 $f_i$ 表示从玩家的棋子位置在 $i-1$ 号格子，对手的棋子在 $i$ 号格子开始，能得到的玩家分数比对手多的分数的最大值。注意这里状态不包括 $a_{i-1}$ 和 $a_i$ 的差，这样最终答案即为 $f_2+a_1-a_2$。最朴素的转移为：</p>
+<script type="math/tex; mode=display">f_i=\max_{i<j\le n}\{a_j-\operatorname{sum}(a_{i+1}\sim a_{j-1})-f_{j}\}</script><p>其中 $\operatorname{sum}(a_l\sim a_r)$ 表示 $a_l$ 到 $a_r$ 的和。但这样直接转移是 $\mathcal{O}(n^2)$ 的，显然无法接受。</p>
+<p>发现 $f_i=\max_{i&lt;j\le n}\{a_j-\operatorname{sum}(a_{i+1}\sim a_{j-1})-f_{j}\}$，而 $f_{i+1}=\max_{i+1&lt;j\le n}\{a_j-\operatorname{sum}(a_{i+1+1}\sim a_{j-1})-f_{j}\}$，长得真的很像。所以我们考虑能不能把 $f_{i+1}$ 扔到 $f_i$ 的转移里面，这样就会快很多，变一变式子，有：</p>
+<script type="math/tex; mode=display">f_{i}=\max\left(\max_{i+1<j\le n}\{a_j-a_{i+1}-\operatorname{sum}(a_{i+1+1}\sim a_{j-1})-f_j\},a_{i+1}-f_{i+1}\right)</script><p>即，$f_{i}=\max(f_{i+1}-a_{i+1},a_{i+1}-f_{i+1})$。可以做到 $\mathcal{O}(n)$ 转移了。</p>
+<p>接下来考虑正解。注意到原式子其实就是 $f_{i}=|f_{i+1}-a{i+1}|$。那这样我们就没必要再用 $f$ 数组来递推结果了，直接用一个 $x$ 记录结果，考虑以下伪代码：<br><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">x := a[n]</span><br><span class="line">for i := n - 1 down to 3 </span><br><span class="line">    x := abs(x - a[i])</span><br><span class="line">ans := x + a[1] - a[2]</span><br></pre></td></tr></table></figure><br>我们叫这个算法 x 算法，接下来的问题就是当 <code>a[n]</code> 改变时快速计算 $x$ 的值。（注意接下来我们不再考虑 <code>a[1]-a[2]</code> 的值，因为只有 $x$ 的值是有用的）</p>
+<p>当 $a_n$ 很大时，具体来讲，当 $a_n\ge \operatorname{sum}(a_1\sim a_{n-1})$ 时，所有 $\operatorname{abs}(x-a_i)$ 都应该等于 $x-a_i$，这样最终的 $x$ 就等于 $a_n-\operatorname{sum}(a_3\sim a_{n-1})$。</p>
+<p>当 $a_n$ 比较小时，具体来讲，当 $a_n&lt; \operatorname{sum}(a_1\sim a_{n-1})$ 时，由于题目数据范围的限制，应该有 $a_n\le 10^6$。这个就比原范围 $10^9$ 来得友好得多了，我们可以考虑对每一种情况都提前预处理一下。具体来讲，我们设 $dp_{j,k}$ 表示当伪代码中的循环运行到 $i=j$ 时（特别地，我们令第 $i=n$ 表示循环之前的那一行语句），$x$ 的值为 $k$，$x$ 的最终值为 $dp_{j,k}$。首先显然有 $dp_{3,k}=k$，然后当对于 $a_n$ 的某个特定值，$x$ 的最终值为 $dp_{n,a_n}$。转移有 $dp_{j+1,k}=dp_{j,\operatorname{abs}(k-a_j)}$。当然我们不可能真的开下这样一个 $dp$ 数组，我们关心的只有 $dp_n$ 这一行，所以我们尝试用小数据打个表，看看能不能找到 $dp_n$ 的什么规律，当 $n=6,a_3=5,a_4=3,a_5=4$ 时，有：</p>
+<script type="math/tex; mode=display">\begin{array}{|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|}k&\bf 0&\bf 1&\bf 2&\bf 3&\bf 4&\bf 5&\bf 6&\bf 7&\bf 8&\bf 9&\bf 10&\bf 11&\bf 12&\bf 13&\bf 14&\bf 15\\dp_{3,k}&0&1&2&3&4&5&6&7&8&9&10&11&12&13&14&15\\dp_{4,k}&5&4&3&2&1&0&1&2&3&4&5&6&7&8&9&10\\dp_{5,k}&2&3&4&5&4&3&2&1&0&1&2&3&4&5&6&7\\dp_{6,k}&4&5&4&3&2&3&4&5&4&3&2&1&0&1&2&3\end{array}</script><p>如果我们能找出来 $dp_6$ 的值对于所有小的 $a_n$ 询问都可以 $\mathcal{O}(1)$ 回答了，当然这个表格也很有规律：</p>
+<script type="math/tex; mode=display">\begin{array}{|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|}k&\bf 0&\bf 1&\bf 2&\bf 3&\bf 4&\bf 5&\bf 6&\bf 7&\bf 8&\bf 9&\bf 10&\bf 11&\bf 12&\bf 13&\bf 14&\bf 15\\dp_{3,k}&0&\color{red}1&\color{red}2&\color{red}3&\color{red}4&\color{red}5&6&7&8&9&10&11&12&13&14&15\\dp_{4,k}&\color{blue}5&\color{purple}4&\color{purple}3&\color{purple}2&\color{blue}1&0&1&2&3&4&5&6&7&8&9&10\\dp_{5,k}&\color{blue}2&\color{purple}3&\color{purple}4&\color{red}5&\color{red}4&3&2&1&0&1&2&3&4&5&6&7\\dp_{6,k}&\color{blue}4&\color{blue}5&\color{blue}4&\color{blue}3&2&3&4&5&4&3&2&1&0&1&2&3\end{array}</script><p>注意到每行 $dp_i$ 的开头，也就是蓝色部分，其实是上一行的红色部分，也就是 $dp_{i-1,1\sim a_{i-1}}$ 倒序放过来的（蓝色红色重叠的部分我放上紫色了）。我们根据这个规律就非常好递推了，随便用个 <code>deque</code> 维护一下当前处理到的 $dp_i$，然后每一轮开个 <code>vector</code> 之类的记录一下要把哪些塞到前面，之后直接倒序塞即可。因为题目保证了 $\sum a_i$ 的范围，所以 <code>deque</code> 只 <code>push_front</code> 不 <code>pop_back</code> 也不会导致 $\tt MLE$，而递推复杂度也只有 $\mathcal{O}(\sum a_i)$。处理出来 $dp_n$ 之后就可以是 $\mathcal{O}(1)$ 回答询问了（这个规律的证明比较不好用语言描述我就不写了，可以自己多手玩几组数据递推一下，应该就能发现证明）。所以本题最终时间复杂度 $\mathcal{O}(n+m+\sum a_i)$。<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;queue&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N = <span class="number">2e5</span> + <span class="number">10</span>; <span class="keyword">int</span> a[N]; std::deque&lt;<span class="keyword">int</span>&gt; dp;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> n, sum = <span class="number">0</span>; <span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>, &amp;n); </span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; n; ++i) <span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>, &amp;a[i]), sum += a[i];</span><br><span class="line">    sum -= a[<span class="number">1</span>]; sum -= a[<span class="number">2</span>]; </span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt;= sum; ++i) dp.<span class="built_in">push_back</span>(i);</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">3</span>; i &lt; n; ++i)</span><br><span class="line">    &#123;</span><br><span class="line">        std::vector&lt;<span class="keyword">int</span>&gt; vec;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">1</span>; j &lt;= a[i]; ++j) vec.<span class="built_in">push_back</span>(dp[j]);</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; vec.<span class="built_in">size</span>(); ++i) dp.<span class="built_in">push_front</span>(vec[i]);</span><br><span class="line">    &#125; </span><br><span class="line">    <span class="keyword">int</span> m; <span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>, &amp;m);</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>, x; i &lt;= m; ++i)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>, &amp;x);</span><br><span class="line">        <span class="keyword">if</span> (x &gt;= sum) &#123; <span class="built_in">printf</span>(<span class="string">&quot;%d\n&quot;</span>, x - sum + a[<span class="number">1</span>] - a[<span class="number">2</span>]); &#125;</span><br><span class="line">        <span class="keyword">else</span> &#123; <span class="built_in">printf</span>(<span class="string">&quot;%d\n&quot;</span>, dp[x] + a[<span class="number">1</span>] - a[<span class="number">2</span>]); &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>I 和 J 实在太难了，目前我对着题解还不太会（$\rm \color{black}T\color{red}ourist$ 是怎么当场 AK 的啊）。总之这一场思维难度很大，感觉比较贴近最近 CCF 的出题风格，尤其是 E 题的推导和 H 题的打表给我印象很深。这就是 OI 与 MO 不一样的地方，你不一定要一直推导下去，当发现无论怎么想都找不到出口时，不妨想想，能不能已经可以开始枚举了呢，能不能打个表找找规律呢。</p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/AGC/" rel="tag"># AGC</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2022/01/24/CODE%20FESTIVAL%202016%20qual%20B%E8%A1%A5%E9%A2%98%E6%80%BB%E7%BB%93/" rel="prev" title="CODE FESTIVAL 2016 qual B">
+      <i class="fa fa-chevron-left"></i> CODE FESTIVAL 2016 qual B
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2022/01/24/AtCoder%20Regular%20Contest%20132/" rel="next" title="AtCoder Regular Contest 132">
+      AtCoder Regular Contest 132 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#CODE-FESTIVAL-2016-Final%E8%A1%A5%E9%A2%98%E6%80%BB%E7%BB%93"><span class="nav-number">1.</span> <span class="nav-text">CODE FESTIVAL 2016 Final补题总结</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE"><span class="nav-number">1.1.</span> <span class="nav-text">题目</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#A-Where%E2%80%99s-Snuke"><span class="nav-number">1.1.1.</span> <span class="nav-text">A - Where’s Snuke?</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#B-Exactly-N-points"><span class="nav-number">1.1.2.</span> <span class="nav-text">B - Exactly N points</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#C-Interpretation"><span class="nav-number">1.1.3.</span> <span class="nav-text">C - Interpretation</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#D-Pair-Cards"><span class="nav-number">1.1.4.</span> <span class="nav-text">D - Pair Cards</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#E-Cookies"><span class="nav-number">1.1.5.</span> <span class="nav-text">E - Cookies</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#F-Road-of-the-King"><span class="nav-number">1.1.6.</span> <span class="nav-text">F - Road of the King</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#G-Zigzag-MST"><span class="nav-number">1.1.7.</span> <span class="nav-text">G - Zigzag MST</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#H-Tokaido"><span class="nav-number">1.1.8.</span> <span class="nav-text">H - Tokaido</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%80%BB%E7%BB%93"><span class="nav-number">1.2.</span> <span class="nav-text">总结</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">zhiyangfan</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">23</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-name">标签</span>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">zhiyangfan</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> 强力驱动
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+      
+
+<script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      loader: {
+        source: {
+          '[tex]/amsCd': '[tex]/amscd',
+          '[tex]/AMScd': '[tex]/amscd'
+        }
+      },
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              let target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    (function () {
+      var script = document.createElement('script');
+      script.src = '//cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js';
+      script.defer = true;
+      document.head.appendChild(script);
+    })();
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+    
+
+  
+
+</body>
+</html>
