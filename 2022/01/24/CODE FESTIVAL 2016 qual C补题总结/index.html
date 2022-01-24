@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 6.0.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"zhiyangfan1234.github.io","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="CODE FESTIVAL 2016 qual C补题总结啊，同上一把，被 E 题卡死了，但好像这一把的 C,D 质量要高一点？所以排名也高了点吧。 题目A - CF给出一个字符串 $s$，求出 $\tt CF$ 是否是 $s$ 的一个子序列。($2\le|s|\le100$) 很难不让人怀疑 AT 和 CF 的关系。 有一说一这道题至少比前两把的 A 题难点（总之就是判看看有没有出现在 $\tt">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CODE FESTIVAL 2016 qual C">
+<meta property="og:url" content="https://zhiyangfan1234.github.io/2022/01/24/CODE%20FESTIVAL%202016%20qual%20C%E8%A1%A5%E9%A2%98%E6%80%BB%E7%BB%93/index.html">
+<meta property="og:site_name" content="zhiyangfan 的博客小窝">
+<meta property="og:description" content="CODE FESTIVAL 2016 qual C补题总结啊，同上一把，被 E 题卡死了，但好像这一把的 C,D 质量要高一点？所以排名也高了点吧。 题目A - CF给出一个字符串 $s$，求出 $\tt CF$ 是否是 $s$ 的一个子序列。($2\le|s|\le100$) 很难不让人怀疑 AT 和 CF 的关系。 有一说一这道题至少比前两把的 A 题难点（总之就是判看看有没有出现在 $\tt">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2022-01-24T09:00:23.000Z">
+<meta property="article:modified_time" content="2022-01-24T09:13:14.545Z">
+<meta property="article:author" content="zhiyangfan">
+<meta property="article:tag" content="AGC">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="https://zhiyangfan1234.github.io/2022/01/24/CODE%20FESTIVAL%202016%20qual%20C%E8%A1%A5%E9%A2%98%E6%80%BB%E7%BB%93/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>CODE FESTIVAL 2016 qual C | zhiyangfan 的博客小窝</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">zhiyangfan 的博客小窝</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://zhiyangfan1234.github.io/2022/01/24/CODE%20FESTIVAL%202016%20qual%20C%E8%A1%A5%E9%A2%98%E6%80%BB%E7%BB%93/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="zhiyangfan">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="zhiyangfan 的博客小窝">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          CODE FESTIVAL 2016 qual C
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2022-01-24 17:00:23 / 修改时间：17:13:14" itemprop="dateCreated datePublished" datetime="2022-01-24T17:00:23+08:00">2022-01-24</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h2 id="CODE-FESTIVAL-2016-qual-C补题总结"><a href="#CODE-FESTIVAL-2016-qual-C补题总结" class="headerlink" title="CODE FESTIVAL 2016 qual C补题总结"></a>CODE FESTIVAL 2016 qual C补题总结</h2><p>啊，同上一把，被 E 题卡死了，但好像这一把的 C,D 质量要高一点？所以排名也高了点吧。</p>
+<h3 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h3><h4 id="A-CF"><a href="#A-CF" class="headerlink" title="A - CF"></a>A - CF</h4><p>给出一个字符串 $s$，求出 $\tt CF$ 是否是 $s$ 的一个子序列。($2\le|s|\le100$)</p>
+<p><del>很难不让人怀疑 AT 和 CF 的关系。</del> 有一说一这道题至少比前两把的 A 题难点（<br>总之就是判看看有没有出现在 $\tt C$ 之后的 $\tt F$ 即可，时间复杂度 $\mathcal{O}(|s|)$。<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="keyword">char</span> s[<span class="number">200</span>];</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">&quot;%s&quot;</span>, s); <span class="keyword">int</span> len = <span class="built_in">strlen</span>(s), flag = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; len; ++i)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> (s[i] == <span class="string">&#x27;C&#x27;</span>) flag = <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">if</span> (s[i] == <span class="string">&#x27;F&#x27;</span> &amp;&amp; flag) &#123; <span class="built_in">printf</span>(<span class="string">&quot;Yes\n&quot;</span>); <span class="keyword">return</span> <span class="number">0</span>; &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;No\n&quot;</span>); <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h4 id="B-K-Cakes"><a href="#B-K-Cakes" class="headerlink" title="B - K Cakes"></a>B - K Cakes</h4><p>现在有 $k$ 块蛋糕，蛋糕一共有 $n$ 种，每种有 $a_i$ 个。现在计划每天吃一块蛋糕，求最少有几天满足和上一天吃的蛋糕是同一种。($1\le k\le10^4,1\le n,a_i\le100,\sum a_i=k$)</p>
+<p>一个小小小小的思维题。最优方案一定是每天都吃不一样的，直到剩下一种。考虑当前状况下最有可能留下的种类一定是 $a_i$ 最大的种类，而我们想要最小化这个种类剩下的数量，一个很显然的思路是每两天吃的是当前种类最多的和随便任意一种还剩的有的种类。最终答案就是剩下来的蛋糕数量减一，时间复杂度 $\mathcal{O}(kn)$。<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="keyword">int</span> a[<span class="number">200</span>];</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> k, t; <span class="built_in">scanf</span>(<span class="string">&quot;%d%d&quot;</span>, &amp;k, &amp;t); </span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= t; ++i) <span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>, &amp;a[i]);</span><br><span class="line">    <span class="keyword">while</span> (<span class="literal">true</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">int</span> maxn = <span class="number">-1</span>, pos = <span class="number">-1</span>, cnt = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= t; ++i) </span><br><span class="line">            <span class="keyword">if</span> (maxn &lt; a[i]) maxn = a[i], pos = i;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= t; ++i) </span><br><span class="line">            <span class="keyword">if</span> (a[i] &amp;&amp; i != pos) &#123; --a[pos], --a[i]; <span class="keyword">break</span>; &#125; </span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= t; ++i) cnt += !(!a[i]);</span><br><span class="line">        <span class="keyword">if</span> (cnt &lt;= <span class="number">1</span>) <span class="keyword">break</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= t; ++i)</span><br><span class="line">        <span class="keyword">if</span> (a[i]) &#123; <span class="built_in">printf</span>(<span class="string">&quot;%d\n&quot;</span>, a[i] - <span class="number">1</span>); <span class="keyword">return</span> <span class="number">0</span>; &#125;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%d\n&quot;</span>, <span class="number">0</span>); <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h4 id="C-Two-Alpinists"><a href="#C-Two-Alpinists" class="headerlink" title="C - Two Alpinists"></a>C - Two Alpinists</h4><p>有一个长为 $n$ 的正整数序列 $h$，给出两个序列 $T,A$ 来描述它。其中 $T_i=\max_{k=1}^i\{h_i\},A_i=\max_{k=i}^n\{h_i\}$。求出可能的合法 $h$ 序列数量对 $10^9+7$ 之后的结果。($1\le n\le 10^5,1\le T_i,A_i\le 10^9,\forall 1\le i&lt;n, T_i\le T_{i+1},A_i\ge A_{i+1}$)</p>
+<p>考虑先利用 $T$ 得出每个数的范围，再利用 $A$ 缩小范围或检查能否同时满足，得出每个数的最终范围之后乘起来就是答案。具体来讲，对于前缀最大值 $T$，它一定是单调不减的，当 $T_i&gt;T_{i-1}$ 时，$h_i=T_i$ 一定成立，如果我们令 $T_0=0$，则这个对任意 $1\le i\le n$ 均成立，即这些位置的范围为 $l=r=T_i$。而对于满足 $T_i=T_{i-1}$ 的位置，对于 $h_i$ 的唯一限制就是不要超过当前的前缀最大值即可，这些位置的范围为 $l=1,r=T_i$。对于后缀最大值 $A$，处理是类似的，只不过要检查一下是否与 $T$ 已经确定过的范围冲突，如果冲突直接输出 $0$ 即可，否则则根据不等式相关知识合并即可。最终答案即为 $\prod_{i=1}^n (r_i-l_i+1)$，时间复杂度 $\mathcal{O}(n)$。<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">long</span> <span class="keyword">long</span> ll; <span class="keyword">const</span> <span class="keyword">int</span> mod = <span class="number">1e9</span> + <span class="number">7</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N = <span class="number">1e5</span> + <span class="number">10</span>; <span class="keyword">int</span> a[N], t[N];</span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">mt</span>&#123;</span> <span class="keyword">int</span> l, r; &#125;Mt[N];</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> n, ans = <span class="number">1</span>; <span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>, &amp;n);</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; ++i) <span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>, &amp;t[i]);</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; ++i) <span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>, &amp;a[i]);</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; ++i)</span><br><span class="line">        <span class="keyword">if</span> (t[i] &gt; t[i - <span class="number">1</span>]) Mt[i].l = Mt[i].r = t[i];</span><br><span class="line">        <span class="keyword">else</span> Mt[i].r = t[i], Mt[i].l = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = n; i &gt;= <span class="number">1</span>; --i)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> (a[i] &gt; a[i + <span class="number">1</span>]) </span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span> (Mt[i].l &lt;= a[i] &amp;&amp; a[i] &lt;= Mt[i].r)</span><br><span class="line">                Mt[i].l = Mt[i].r = a[i];</span><br><span class="line">            <span class="keyword">else</span> &#123; <span class="built_in">printf</span>(<span class="string">&quot;0\n&quot;</span>); <span class="keyword">return</span> <span class="number">0</span>; &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> Mt[i].r = std::<span class="built_in">min</span>(Mt[i].r, a[i]);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; ++i)</span><br><span class="line">        ans = (ll)ans * (Mt[i].r - Mt[i].l + <span class="number">1</span>) % mod;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%d\n&quot;</span>, ans); <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h4 id="D-Friction"><a href="#D-Friction" class="headerlink" title="D - Friction"></a>D - Friction</h4><p>给出一个 $h$ 行 $w$ 列的表格，其中每一个格子 $(i,j)$ 都有一个用字母 <code>a-z</code> 表示的颜色 $c_{i,j}$。想用以下方法把这个表格拆除：</p>
+<ul>
+<li>选择 $w$ 列中的其中一列，把它往下移动一行，最后一行的格子消失。</li>
+</ul>
+<p>每次操作需要一定的花费，具体来讲，每次操作的花费是满足以下条件的二元组 $(p,q)$ 个数：</p>
+<ul>
+<li>格子 $p$ 在所选的这一列中。</li>
+<li>格子 $p,q$ 在移动这一列前水平相邻。</li>
+<li>格子 $p,q$ 有相同的颜色。</li>
+</ul>
+<p>求出拆除所有表格所需要的最小花费。($1\le h\le300,2\le w\le 300$)</p>
+<p>考虑到三列之间的操作可以交替进行，且手玩几组样例后发现三列中的相邻两列组的最优解组合并不会冲突，所以我们可以两列两列考虑。具体来讲，我们设 $f_{i,j}$ 表示这相邻两列中第一列移动了 $i$ 行，第二列移动了 $j$ 行的最小花费，$cst_{i,j}$ 表示第一列移动 $i$ 行后，第二列移动 $j$ 行后再移动依次所产生的花费。则转移方程易得：</p>
+<script type="math/tex; mode=display">f_{i,j}=\min(f_{i-1,j}+cst_{i-1,j}, f_{i,j-1}+cst_{i,j-1})</script><p>直接 $\mathcal{O}(h^2)$ 转移即可，而 $cst_{i,j}$ 也可以在 $\mathcal{O}(h^2)$ 的时间处理出来，算上枚举列的复杂度，最终时间复杂度 $\mathcal{O}(h^2w)$。<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N = <span class="number">310</span>; <span class="keyword">int</span> n, m, f[N][N]; <span class="keyword">char</span> mp[N][N];</span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">int</span> <span class="title">work</span><span class="params">(<span class="keyword">int</span> x)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; ++i)</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">1</span>; j &lt;= n; ++j)</span><br><span class="line">            f[i][j] = (mp[i][x] == mp[j][x + <span class="number">1</span>]);</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; ++i)</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">1</span>; j &lt;= n; ++j) f[i][j] += f[i - <span class="number">1</span>][j - <span class="number">1</span>]; </span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; ++i)</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">1</span>; j &lt;= n; ++j) f[i][j] += std::<span class="built_in">min</span>(f[i - <span class="number">1</span>][j], f[i][j - <span class="number">1</span>]);</span><br><span class="line">    <span class="keyword">return</span> f[n][n];</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">&quot;%d%d&quot;</span>, &amp;n, &amp;m);</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; ++i) <span class="built_in">scanf</span>(<span class="string">&quot;%s&quot;</span>, mp[i] + <span class="number">1</span>);</span><br><span class="line">    <span class="keyword">int</span> ans = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; m; ++i) ans += <span class="built_in">work</span>(i);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%d\n&quot;</span>, ans); <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h4 id="E-Encyclopedia-of-Permutations"><a href="#E-Encyclopedia-of-Permutations" class="headerlink" title="E - Encyclopedia of Permutations"></a>E - Encyclopedia of Permutations</h4><p>本题中把 $n$ 的 $n!$ 个排列按照字典序递增的顺序从 $1$ 开始依次编号，比如在 $5$ 的排列中 $1,2,3,4,5$ 的编号就为 $1$。现在想查询一个排列 $\mathcal{P}$ 的编号，但有的部分是不确定的。具体来讲，如果 $\mathcal{P}_i&gt;0$，则表示 $\mathcal{P}_i$ 这一位是确定的，如果 $\mathcal{P}_i=0$，则表示 $\mathcal{P}_i$ 这一位是不确定的。请求出所有可能的排列的编号和对 $10^9+7$ 取模后的结果。($1\le n\le5\times10^5,0\le \mathcal{P}_i\le n,\forall \mathcal{P}_i\ne 0,\mathcal{P}_j\ne 0,i\ne j,\mathcal{P}_i\ne \mathcal{P}_j$)</p>
+<p>非常妙的一道数学题。这道题其实可以转化为对于所有可能的排列 $\mathcal{P}$ 求字典序小于 $\mathcal{P}$ 的排列数目。注意到一个排列 $\mathcal{Q}$ 字典序小于 $\mathcal{P}$ 当且仅当存在一个位置 $i$ 使得 $\mathcal{Q}_i&lt;\mathcal{P}_i$ 且 $\forall 1\le j&lt;i$ 都有 $\mathcal{Q}_j=\mathcal{P}_j$。所以我们可以考虑枚举这个位置，则小于一个排列 $\mathcal{P}$ 的排列数量就可以转化为：</p>
+<script type="math/tex; mode=display">\sum_{i=1}^n\left(\mathcal{P}_i-1-\sum_{j=1}^{i-1}[\mathcal{P}_j<\mathcal{P}_i]\right)(n-i)!</script><p>对于枚举到的位置 $i$，比这个位置小的值有 $\mathcal{P}_i-1$ 个，但因为前面全部要求相同且不能出现重复数字，所以要减去满足 $\mathcal{P}_j&lt;\mathcal{P}_i$ 且 $j&lt;i$ 的 $j$。最后剩下的 $(n-i)$ 个位置无所谓，乘个阶乘即可。也就是说，这道题的答案即为：</p>
+<script type="math/tex; mode=display">\sum_{\mathcal{P}\in\mathbf{P}}\sum_{i=1}^n\left(\mathcal{P}_i-1-\sum_{j=1}^{i-1}[\mathcal{P}_j<\mathcal{P}_i]\right)(n-i)!</script><p>其中 $\mathbf{P}$ 为所有可能的排列组成的集合。考虑变一变求和顺序，原式即为：</p>
+<script type="math/tex; mode=display">\sum_{i=1}^n\left(\sum_{\mathcal{P}\in \mathbf{P}}(\mathcal{P}_i-1)-\sum_{\mathcal{P}\in \mathbf{P}}\sum_{j=1}^{i-1}[\mathcal{P}_j<\mathcal{P}_i]\right)(n-i)!</script><p>接下来我们分别求解 $\sum_{\mathcal{P}\in \mathbf{P}}(\mathcal{P}_i-1)$ 和 $\sum_{\mathcal{P}\in \mathbf{P}}\sum_{j=1}^{i-1}[\mathcal{P}_j&lt;\mathcal{P}_i]$。</p>
+<p>首先考虑比较简单的前者。因为只涉及到 $\mathcal{P}_i$ 这一个位置，所以我们只需要分类讨论两种情况，注意下文中 $k$ 表示 $\mathcal{P}_i=0$ 的数量，$s$ 表示未被填入数字减一之和。</p>
+<ol>
+<li>$\mathcal{P}_i\ne 0$。则可以直接计算，即 $(\mathcal{P_i}-1)k!$。</li>
+<li>$\mathcal{P}_i=0$。可以稍微推一推式子然后直接计算。即 $s(k-1)!$，分配率乘进 $s$ 之后可以发现其实就是对于每一种可能的填入情况乘上剩余位随便放的方案数。</li>
+</ol>
+<p>接下来我们考虑后者，涉及到 $\mathcal{P}_i,\mathcal{P}_j$ 这两个位置，所以我们需要分类讨论四种情况，注意下文中 $sum_i$ 表示大于 $s_i$ 的数之和，$cnt$ 表示考虑到的位置之前有多少空位置。</p>
+<ol>
+<li>$\mathcal{P}_i\ne 0,\mathcal{P}_j\ne 0$。也就是统计 $\mathcal{P}_i$ 这一个确定的位置前面有多少确定的比它小的数，直接开个树状数组记录一下即可。</li>
+<li>$\mathcal{P}_i\ne 0,\mathcal{P}_j=0$。也就是统计 $\mathcal{P}_i$ 这一个确定的位置前面有多少不确定的比它小的数。直接在没有填的位置选一个比 $s_i$ 小的数填一下就完事了，即 $pre\times(sum_1-sum_{s_i})\times(k-1)!$。</li>
+<li>$\mathcal{P}_i=0,\mathcal{P}_j\ne 0$。也就是统计 $\mathcal{P}_i$ 这个不确定的位置前面有多少确定的比它小的数。这个能前缀统计，对于每个确定的 $\mathcal{P}_j$，$pre=pre+sum_{\mathcal{P}_j}\times(k-1)!$，也就是考虑空位中比它大的元素，其他随便填。</li>
+<li>$\mathcal{P}_i=0,\mathcal{P}_j=0$。也就是统计 $\mathcal{P}_i$ 这个不确定的位置前面有多少不确定的比它小的数。也就是 $k$ 个数里面选俩，其他随便填，即 $cnt\times \binom{k}{2}\times(k-2)!$。</li>
+</ol>
+<p>没了，大力分类讨论完了，细节颇多，具体实现看代码吧，时间复杂度 $\mathcal{O}(n\log n)$。<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N = <span class="number">5e5</span> + <span class="number">10</span>, mod = <span class="number">1e9</span> + <span class="number">7</span>; <span class="keyword">typedef</span> <span class="keyword">long</span> <span class="keyword">long</span> ll;</span><br><span class="line"><span class="keyword">int</span> ok[N], p[N], n, k, fac[N], ifac[N], sum[N], ans[N];</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">ksm</span><span class="params">(<span class="keyword">int</span> a, <span class="keyword">int</span> b)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> ret = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">while</span> (b)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> (b &amp; <span class="number">1</span>) ret = (ll)ret * a % mod;</span><br><span class="line">        a = (ll)a * a % mod; b &gt;&gt;= <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> ret;</span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">BIT</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    <span class="keyword">int</span> c[N], len;</span><br><span class="line">    <span class="meta">#<span class="meta-keyword">define</span> lowbit(x) (x &amp; -x)</span></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">add</span><span class="params">(<span class="keyword">int</span> x, <span class="keyword">int</span> v)</span> </span>&#123; <span class="keyword">for</span> (<span class="keyword">int</span> i = x; i &lt;= len; i += <span class="built_in">lowbit</span>(i)) c[i] = (c[i] + v) % mod; &#125;</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">query</span><span class="params">(<span class="keyword">int</span> x)</span> </span>&#123; <span class="keyword">int</span> ans = <span class="number">0</span>; <span class="keyword">for</span> (<span class="keyword">int</span> i = x; i; i -= <span class="built_in">lowbit</span>(i)) ans = (ans + c[i]) % mod; <span class="keyword">return</span> ans; &#125;</span><br><span class="line">    <span class="meta">#<span class="meta-keyword">undef</span> lowbit</span></span><br><span class="line">&#125;bit;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">C</span><span class="params">(<span class="keyword">int</span> n, <span class="keyword">int</span> m)</span> </span>&#123; <span class="keyword">return</span> (ll)fac[n] * ifac[m] % mod * ifac[n - m] % mod; &#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>, &amp;n); ifac[<span class="number">0</span>] = fac[<span class="number">0</span>] = <span class="number">1</span>; bit.len = n;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; N; ++i) fac[i] = (ll)fac[i - <span class="number">1</span>] * i % mod;</span><br><span class="line">    ifac[N - <span class="number">1</span>] = <span class="built_in">ksm</span>(fac[N - <span class="number">1</span>], mod - <span class="number">2</span>);</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = N - <span class="number">2</span>; i &gt;= <span class="number">1</span>; --i) ifac[i] = (ll)ifac[i + <span class="number">1</span>] * (i + <span class="number">1</span>) % mod;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; ++i)</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>, &amp;p[i]), p[i] ? ok[p[i]] = <span class="number">1</span> : ++k;</span><br><span class="line">    <span class="keyword">int</span> s = <span class="number">0</span>, pre = <span class="number">0</span>, cnt = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = n; i &gt;= <span class="number">1</span>; --i)</span><br><span class="line">        sum[i] = (sum[i] + sum[i + <span class="number">1</span>]) % mod, !ok[i] ? (++sum[i], s = (s + i - <span class="number">1</span>) % mod): <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; ++i)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> (!p[i])</span><br><span class="line">        &#123;</span><br><span class="line">            ans[i] = (ans[i] - pre + mod) % mod;</span><br><span class="line">            ans[i] = (ans[i] + (ll)s * fac[k - <span class="number">1</span>]) % mod;</span><br><span class="line">            <span class="keyword">if</span> (k &gt;= <span class="number">2</span>) ans[i] = (ans[i] - (ll)cnt * <span class="built_in">C</span>(k, <span class="number">2</span>) % mod * fac[k - <span class="number">2</span>] + mod) % mod;</span><br><span class="line">            ++cnt;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">        &#123;   </span><br><span class="line">            ans[i] = (ans[i] + (ll)(p[i] - <span class="number">1</span>) * fac[k]) % mod;</span><br><span class="line">            ans[i] = (ans[i] - (ll)bit.<span class="built_in">query</span>(p[i] - <span class="number">1</span>) * fac[k] % mod + mod) % mod;</span><br><span class="line">            <span class="keyword">if</span> (k) ans[i] = (ans[i] - (ll)cnt * (sum[<span class="number">1</span>] - sum[p[i]]) % mod * fac[k - <span class="number">1</span>] % mod + mod) % mod;</span><br><span class="line">            <span class="keyword">if</span> (k) pre = (pre + (ll)sum[p[i] + <span class="number">1</span>] * fac[k - <span class="number">1</span>]) % mod;</span><br><span class="line">            bit.<span class="built_in">add</span>(p[i], <span class="number">1</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">int</span> Ans = fac[k];</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; ++i)</span><br><span class="line">        Ans = (Ans + (ll)fac[n - i] * ans[i]) % mod;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%d\n&quot;</span>, (Ans + mod) % mod); <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>这把的 A,B,C 题比较简单没什么总结的价值，E 题太难了没什么总结的价值。而 D 题的 $\rm dp$ 值得好好看看。这题的一个重要思想是不同列之间的独立性这个规律，直接看可能很难发现，这启示我们在有思路但没有完全有思路是多手玩几组样例，这样可以找到一些规律，<del>尽管不会证明</del>。</p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/AGC/" rel="tag"># AGC</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item"></div>
+      <div class="post-nav-item">
+    <a href="/2022/01/24/CODE%20FESTIVAL%202016%20qual%20B%E8%A1%A5%E9%A2%98%E6%80%BB%E7%BB%93/" rel="next" title="CODE FESTIVAL 2016 qual B">
+      CODE FESTIVAL 2016 qual B <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#CODE-FESTIVAL-2016-qual-C%E8%A1%A5%E9%A2%98%E6%80%BB%E7%BB%93"><span class="nav-number">1.</span> <span class="nav-text">CODE FESTIVAL 2016 qual C补题总结</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE"><span class="nav-number">1.1.</span> <span class="nav-text">题目</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#A-CF"><span class="nav-number">1.1.1.</span> <span class="nav-text">A - CF</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#B-K-Cakes"><span class="nav-number">1.1.2.</span> <span class="nav-text">B - K Cakes</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#C-Two-Alpinists"><span class="nav-number">1.1.3.</span> <span class="nav-text">C - Two Alpinists</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#D-Friction"><span class="nav-number">1.1.4.</span> <span class="nav-text">D - Friction</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#E-Encyclopedia-of-Permutations"><span class="nav-number">1.1.5.</span> <span class="nav-text">E - Encyclopedia of Permutations</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%80%BB%E7%BB%93"><span class="nav-number">1.2.</span> <span class="nav-text">总结</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">zhiyangfan</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">23</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-name">标签</span>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">zhiyangfan</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> 强力驱动
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+      
+
+<script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      loader: {
+        source: {
+          '[tex]/amsCd': '[tex]/amscd',
+          '[tex]/AMScd': '[tex]/amscd'
+        }
+      },
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              let target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    (function () {
+      var script = document.createElement('script');
+      script.src = '//cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js';
+      script.defer = true;
+      document.head.appendChild(script);
+    })();
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+    
+
+  
+
+</body>
+</html>

@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 6.0.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"zhiyangfan1234.github.io","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="AtCoder Grand Contest 007 补题总结感觉题开始难起来了呀，最后压线才把 A,B,D 写完，而且还罚时一堆&#x2F;kk。 题目A - Shik and Stone给出一个 $h$ 行 $w$ 列的方格，现在从 $(1,1)$ 走到 $(h,w)$，可以上下左右走且能重复经过格子。给出一个表格表示路径，其中格子是 # 表示经过了，. 表示没经过。问能否只通过向下和向右走构造出这样的路">
+<meta property="og:type" content="article">
+<meta property="og:title" content="AtCoder Grand Contest 007">
+<meta property="og:url" content="https://zhiyangfan1234.github.io/2022/01/24/AtCoder%20Grand%20Contest%20007/index.html">
+<meta property="og:site_name" content="zhiyangfan 的博客小窝">
+<meta property="og:description" content="AtCoder Grand Contest 007 补题总结感觉题开始难起来了呀，最后压线才把 A,B,D 写完，而且还罚时一堆&#x2F;kk。 题目A - Shik and Stone给出一个 $h$ 行 $w$ 列的方格，现在从 $(1,1)$ 走到 $(h,w)$，可以上下左右走且能重复经过格子。给出一个表格表示路径，其中格子是 # 表示经过了，. 表示没经过。问能否只通过向下和向右走构造出这样的路">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2022-01-24T09:00:23.000Z">
+<meta property="article:modified_time" content="2022-01-24T09:11:40.434Z">
+<meta property="article:author" content="zhiyangfan">
+<meta property="article:tag" content="AGC">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="https://zhiyangfan1234.github.io/2022/01/24/AtCoder%20Grand%20Contest%20007/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>AtCoder Grand Contest 007 | zhiyangfan 的博客小窝</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">zhiyangfan 的博客小窝</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://zhiyangfan1234.github.io/2022/01/24/AtCoder%20Grand%20Contest%20007/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="zhiyangfan">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="zhiyangfan 的博客小窝">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          AtCoder Grand Contest 007
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2022-01-24 17:00:23 / 修改时间：17:11:40" itemprop="dateCreated datePublished" datetime="2022-01-24T17:00:23+08:00">2022-01-24</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h2 id="AtCoder-Grand-Contest-007-补题总结"><a href="#AtCoder-Grand-Contest-007-补题总结" class="headerlink" title="AtCoder Grand Contest 007 补题总结"></a>AtCoder Grand Contest 007 补题总结</h2><p>感觉题开始难起来了呀，最后压线才把 A,B,D 写完，而且还罚时一堆/kk。</p>
+<h3 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h3><h4 id="A-Shik-and-Stone"><a href="#A-Shik-and-Stone" class="headerlink" title="A - Shik and Stone"></a>A - Shik and Stone</h4><p>给出一个 $h$ 行 $w$ 列的方格，现在从 $(1,1)$ 走到 $(h,w)$，可以上下左右走且能重复经过格子。给出一个表格表示路径，其中格子是 <code>#</code> 表示经过了，<code>.</code> 表示没经过。问能否只通过向下和向右走构造出这样的路径，数据保证给出的表格合法，即存在一条走出来的路径。($2\le h,w\le8$)</p>
+<p>这题可以爆搜做，但是细节比较多，容易写挂（对就是我），所以我们考虑找一些结论。注意到只向下和向右走的话是不能经过重复方格的，且每一步就要移动一步且仅移动一步，所以可以大胆猜想一个结论：如果最后存在这样一条路径，则表格中的 <code>#</code> 数量一定恰好为 $h+w-1$。必要性显然，那充分性呢？注意到一定存在一条从 $(1,1)$ 到 $(h,w)$ 的路径，所以只要走且仅走了 $h+w-1$ 步就一定能构造出来这样的路径，所以可以直接用这个结论做，时间复杂度 $\mathcal{O}(hw)$。<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="keyword">char</span> mp[<span class="number">10</span>][<span class="number">10</span>]; <span class="keyword">int</span> n, m;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">&quot;%d%d&quot;</span>, &amp;n, &amp;m); <span class="keyword">int</span> sum = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; ++i) <span class="built_in">scanf</span>(<span class="string">&quot;%s&quot;</span>, mp[i] + <span class="number">1</span>);</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; ++i)</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">1</span>; j &lt;= m; ++j) sum += (mp[i][j] == <span class="string">&#x27;#&#x27;</span>);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%s\n&quot;</span>, sum == n + m - <span class="number">1</span> ? <span class="string">&quot;Possible&quot;</span> : <span class="string">&quot;Impossible&quot;</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h4 id="B-Construct-Sequences"><a href="#B-Construct-Sequences" class="headerlink" title="B - Construct Sequences"></a>B - Construct Sequences</h4><p>给出一个 $1\sim n$ 的排列 $p$，要求构造出满足以下条件的两组序列 $a=\langle a_1,a_2,\cdot\cdot\cdot,a_n\rangle,b=\langle b_1,b_2,\cdot\cdot\cdot,b_n\rangle$：</p>
+<ul>
+<li>$\forall 1\le i\le n$ 有 $1\le a_i,b_i\le10^9$</li>
+<li>$a_1&lt;a_2&lt;\cdot\cdot\cdot&lt;a_n$</li>
+<li>$b_1&gt;b_2&gt;\cdot\cdot\cdot&gt;b_n$</li>
+<li>$a_{p_1}+b_{p_1}&lt;a_{p_2}+b_{p_2}&lt;\cdot\cdot\cdot&lt;a_{p_n}+b_{p_n}$</li>
+</ul>
+<p>($2\le n\le2\times10^4$)</p>
+<p>说句题外话，这道题我因为看错 $n$ 的数据范围 $\tt RE$ 了一发…  既然面对题目给的条件不知所云，我们不如首先考虑一下如何让 $a_{p_1}+b_{p_1}=a_{p_2}+b_{p_2}=\cdot\cdot\cdot=a_{p_n}+b_{p_n}$，之后再微调一下说不定就出来了。一个很显然的思路就是令 $a_i=i,b_i=n-i$，这样既满足 $a$ 严格递增，$b$ 严格递减，也满足任意一对 $a_i,b_i$ 加起来是定值。接下来考虑微调，一个最最最初步的想法是给 $a_{p_i}$ 或者 $b_{p_i}$ 加上一个 $i$（为了方便之后我们后面都选择给 $b_{p_i}$ 加），这样就能做到题目要求的严格递增了。但问题又来了，这样一加就可能会破坏 $b$ 序列的严格递减性。这没有关系，考虑让 <strong>使得 $b_i$ 单调递减的因素占在整个 $b_i$ 的大小中的主要地位</strong> 即可。具体来讲，我们可以给 $n-i$ 这一部分加上一个很大的因子 $k$ （为了满足加和一定的性质 $a_i$ 上的 $i$ 也要加），这样就 $b$ 的严格递减性就不会被轻易破坏了。总结一下就是，构造 $a_i=ki,b_i=k(n-i)+q_i$，其中 $q_i=j$ 当且仅当 $p_j=i$，而 $k$ 只需要选到大于 $n$ 即可，最终时间复杂度 $\mathcal{O}(n)$。这也就是为啥这题明明是线性复杂度而题目却给了这么小一个 $n$ 的理由，因为要保证 $a_i,b_i$ 不超值域嘛。<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N = <span class="number">2e4</span> + <span class="number">10</span>; <span class="keyword">int</span> p[N], a[N], b[N], rk[N];</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> n; <span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>, &amp;n); <span class="keyword">int</span> k = n + <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; ++i) <span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>, &amp;p[i]), rk[p[i]] = i;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; ++i) a[i] = k * i;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; ++i) b[i] = k * (n - i + <span class="number">1</span>) + rk[i];</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; ++i) <span class="built_in">printf</span>(<span class="string">&quot;%d &quot;</span>, a[i]); <span class="built_in">printf</span>(<span class="string">&quot;\n&quot;</span>);</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; ++i) <span class="built_in">printf</span>(<span class="string">&quot;%d &quot;</span>, b[i]); <span class="built_in">printf</span>(<span class="string">&quot;\n&quot;</span>); <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h4 id="C-Pushing-Balls"><a href="#C-Pushing-Balls" class="headerlink" title="C - Pushing Balls"></a>C - Pushing Balls</h4><p>一条线上有 $n$ 个球和 $n+1$ 个洞，初始状态下第 $i$ 个球在第 $i$ 个和第 $i+1$ 个洞之间。我们令两个相邻物品之间的距离为 $d_i(1\le i\le 2n)$，则我们可以给出 $d_1$ 和 $x$ 来描述这个序列：$\forall 2\le i\le 2n$ 都有 $d_i-d_{i-1}=x$。现在我们想进行 $n$ 轮操作使得所有球进洞，对于每一轮操作，我们随机选择一个球，并随机选择左右方向推动这个球，这个球会进入它被推动的方向上第一个没有球的洞。求出 $n$ 轮操作后所有球的移动距离和的期望大小。($1\le n\le2\times10^5,1\le d_1\le100,0\le x\le100$)</p>
+<p>有一说一，这题考场 AC 比 D 少，为啥 C 题会存在这样的神题啊？首先发现 $d$ 序列初始时是个等差数列，想到可以从这点入手去推一推式子。而又发现每次推完球我们得到的是一个球和洞各少了一个的子问题，所以考虑推球前后问题的相似性。一共有 $2n$ 种推球的可能性，考虑哪种情况下会对 $d_i$ 期望长度增加产生贡献：</p>
+<ul>
+<li>被推动的球经过的是前 $i$ 段距离之中的一段（注意这里的第 $i$ 个距离跟第 $i$ 个球的区别，第 $i$ 个球有可能经过第 $i$ 个路径，也有可能经过第 $i+1$ 个路径），比如经过了第 $k$ 段，则会导致距离 $k$ 与它相邻的那一段距离消失，而第 $i$ 段也会被第 $i+2$ 段取代，所以这种情况下的增加的期望长度为 $i\times(d_{i+2}-d_i)$</li>
+<li>被推动的球经过的是第 $i+1$ 段路径，则第 $i,i+2,i+3$ 段会合并为新的第 $i$ 段，所以增加的期望长度为 $d_{i+2}+d_{i+3}$</li>
+</ul>
+<p>最终，每一轮后，$d_i$ 增加的期望长度为：$\dfrac{i\times(d_{i+2}-d_i)+(d_{i+2}+d_{i+3})}{2n}$，所以新一轮的 $d_i’$ 即为</p>
+<script type="math/tex; mode=display">d_i'=d_i+\dfrac{i\times(d_{i+2}-d_i)+(d_{i+2}+d_{i+3})}{2n}=d_i+\dfrac{i\times 2x+2d+5x}{2n}</script><p>可以观察到，这形成了一个新的等差数列。而每次推球的期望长度是 $d_i$ 的中位数，即 $d_1+x\times \dfrac{2n-1}{2}$，这样每次递推更新公差为 $x+\dfrac{2x}{n}$，初始值为 $d_1+\dfrac{2d_1+5x}{2n}$（这里不加那个 $i\times 2x$ 是因为在更新公差时算上了），$\mathcal{O}(n)$ 递推即可。<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> n; <span class="keyword">double</span> d, x; <span class="built_in">scanf</span>(<span class="string">&quot;%d%lf%lf&quot;</span>, &amp;n, &amp;d, &amp;x);</span><br><span class="line">    <span class="keyword">double</span> ans = <span class="number">0</span>; <span class="keyword">int</span> n2 = (n &lt;&lt; <span class="number">1</span>);</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; ++i)</span><br><span class="line">    &#123;</span><br><span class="line">        ans += d + x * (n2 - <span class="number">1</span>) / <span class="number">2</span>;</span><br><span class="line">        d += (<span class="number">2</span> * d + <span class="number">5</span> * x) / n2;</span><br><span class="line">        x += <span class="number">4</span> * x / n2; n2 -= <span class="number">2</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%.10lf\n&quot;</span>, ans); <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h4 id="D-Shik-and-Game"><a href="#D-Shik-and-Game" class="headerlink" title="D - Shik and Game"></a>D - Shik and Game</h4><h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3>
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/AGC/" rel="tag"># AGC</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2022/01/24/AtCoder%20Grand%20Contest%20009/" rel="prev" title="AtCoder Grand Contest 009">
+      <i class="fa fa-chevron-left"></i> AtCoder Grand Contest 009
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2022/01/24/AtCoder%20Grand%20Contest%20005/" rel="next" title="AtCoder Grand Contest 005">
+      AtCoder Grand Contest 005 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#AtCoder-Grand-Contest-007-%E8%A1%A5%E9%A2%98%E6%80%BB%E7%BB%93"><span class="nav-number">1.</span> <span class="nav-text">AtCoder Grand Contest 007 补题总结</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE"><span class="nav-number">1.1.</span> <span class="nav-text">题目</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#A-Shik-and-Stone"><span class="nav-number">1.1.1.</span> <span class="nav-text">A - Shik and Stone</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#B-Construct-Sequences"><span class="nav-number">1.1.2.</span> <span class="nav-text">B - Construct Sequences</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#C-Pushing-Balls"><span class="nav-number">1.1.3.</span> <span class="nav-text">C - Pushing Balls</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#D-Shik-and-Game"><span class="nav-number">1.1.4.</span> <span class="nav-text">D - Shik and Game</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%80%BB%E7%BB%93"><span class="nav-number">1.2.</span> <span class="nav-text">总结</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">zhiyangfan</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">23</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-name">标签</span>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">zhiyangfan</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> 强力驱动
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+      
+
+<script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      loader: {
+        source: {
+          '[tex]/amsCd': '[tex]/amscd',
+          '[tex]/AMScd': '[tex]/amscd'
+        }
+      },
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              let target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    (function () {
+      var script = document.createElement('script');
+      script.src = '//cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js';
+      script.defer = true;
+      document.head.appendChild(script);
+    })();
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+    
+
+  
+
+</body>
+</html>
